@@ -18,6 +18,9 @@ export interface Project {
   studioLogoUrl?: string;
   gameLogoUrl?: string;
   color?: string;
+  invertLogo?: boolean;
+  logoScale?: number;
+  useColorForLogo?: boolean;
 }
 
 export interface Writing {

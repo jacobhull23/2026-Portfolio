@@ -75,9 +75,8 @@ export default function App() {
 
       <main>
         {/* Hero Section */}
-        <section className="pt-40 pb-24 px-6 relative overflow-hidden bg-primary text-primary-foreground">
-          <div className="absolute top-0 right-0 w-1/2 h-full bg-accent/20 skew-x-12 translate-x-1/4 pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-full h-1 bg-accent" />
+        <section className="pt-40 pb-24 px-6 relative overflow-hidden bg-background text-foreground border-b-4 border-primary">
+          <div className="absolute top-0 right-0 w-1/2 h-full bg-accent/10 skew-x-12 translate-x-1/4 pointer-events-none" />
           <div className="max-w-7xl mx-auto relative z-10">
             <motion.div 
               initial={{ opacity: 0, y: 30 }}
@@ -86,21 +85,21 @@ export default function App() {
             >
               <h1 className="font-display text-6xl md:text-9xl font-bold leading-[0.9] tracking-tighter uppercase mb-8">
                 Senior Game <br />
-                <span className="text-accent">Producer</span>
+                <span className="text-primary">Producer</span>
               </h1>
               <div className="flex flex-col md:flex-row md:items-end justify-between gap-12">
                 <div className="max-w-xl">
-                  <p className="text-xl md:text-2xl font-medium leading-tight opacity-80 mb-8">
+                  <p className="text-xl md:text-2xl font-medium leading-tight text-foreground/70 mb-8">
                     Jacob Hull. Product Lead & Senior Producer bridging creative vision and technical execution for the world's most ambitious studios.
                   </p>
                   <div className="flex flex-wrap gap-4">
                     <a href="#projects">
-                      <Button className="bg-accent hover:bg-accent/90 text-accent-foreground rounded-none h-14 px-10 text-sm font-bold uppercase tracking-widest">
+                      <Button className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-none h-14 px-10 text-sm font-bold uppercase tracking-widest">
                         Explore Work
                       </Button>
                     </a>
-                    <div className="flex items-center gap-6 px-6 border border-primary-foreground/20">
-                      <a href="https://www.linkedin.com/in/jacobhull" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors flex items-center gap-2 text-xs font-bold uppercase tracking-widest">
+                    <div className="flex items-center gap-6 px-6 border border-foreground/20">
+                      <a href="https://www.linkedin.com/in/jacobhull" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors flex items-center gap-2 text-xs font-bold uppercase tracking-widest">
                         <Linkedin className="h-5 w-5" /> LinkedIn
                       </a>
                     </div>
@@ -112,17 +111,17 @@ export default function App() {
         </section>
 
         {/* Projects Section - Primary Focus */}
-        <section id="projects" className="py-32 px-6">
+        <section id="projects" className="py-32 px-6 bg-background">
           <div className="max-w-7xl mx-auto">
             <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
               <div>
                 <div className="flex items-center gap-4 mb-4">
-                  <div className="h-px w-12 bg-accent" />
-                  <h2 className="text-xs font-bold uppercase tracking-[0.3em] text-accent">Selected Works</h2>
+                  <div className="h-px w-12 bg-primary" />
+                  <h2 className="text-xs font-bold uppercase tracking-[0.3em] text-primary">Selected Works</h2>
                 </div>
-                <h3 className="text-5xl md:text-7xl font-display font-bold uppercase tracking-tighter">Shipped & <br />In-Flight</h3>
+                <h3 className="text-5xl md:text-7xl font-display font-bold uppercase tracking-tighter text-foreground">Shipped & <br />In-Flight</h3>
               </div>
-              <p className="max-w-md text-muted-foreground font-medium">
+              <p className="max-w-md text-foreground/60 font-medium">
                 A highlight of major titles and platforms I've helped bring to life across Riot Games, ZA/UM, TT Games, and more.
               </p>
             </div>
@@ -163,28 +162,48 @@ export default function App() {
                         className="object-cover w-full h-full transition-all duration-1000 scale-105 group-hover:scale-100"
                         referrerPolicy="no-referrer"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent opacity-90 group-hover:opacity-80 transition-opacity" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent opacity-95 group-hover:opacity-90 transition-opacity" />
                       
                       <div className="absolute bottom-0 left-0 w-full p-8 md:p-16 flex flex-col md:flex-row md:items-end justify-between gap-8 z-10">
                         <div className="max-w-2xl">
                           <Badge 
                             style={{ backgroundColor: projectColor }}
-                            className={`rounded-none font-mono text-[10px] uppercase tracking-widest px-3 mb-6 border-none ${isLight ? 'text-black' : 'text-white'}`}
+                            className={`rounded-none font-mono text-[10px] uppercase tracking-widest px-3 mb-6 border border-foreground/10 shadow-lg shadow-foreground/20 ${isLight ? 'text-black' : 'text-white'}`}
                           >
                             {project.year}
                           </Badge>
                           {project.gameLogoUrl ? (
-                            <div className="mb-6 h-16 md:h-24 flex items-center">
-                              <img 
-                                src={project.gameLogoUrl} 
-                                alt={project.title} 
-                                className="h-full w-auto max-w-[280px] md:max-w-[400px] object-contain object-left"
-                                referrerPolicy="no-referrer"
-                              />
+                            <div className="mb-8 h-24 md:h-40 flex items-center">
+                              {project.useColorForLogo ? (
+                                <div 
+                                  style={{ 
+                                    backgroundColor: projectColor,
+                                    maskImage: `url(${project.gameLogoUrl})`,
+                                    WebkitMaskImage: `url(${project.gameLogoUrl})`,
+                                    maskSize: 'contain',
+                                    WebkitMaskSize: 'contain',
+                                    maskRepeat: 'no-repeat',
+                                    WebkitMaskRepeat: 'no-repeat',
+                                    maskPosition: 'left center',
+                                    WebkitMaskPosition: 'left center',
+                                    transform: `scale(${project.logoScale || 1})`,
+                                    transformOrigin: 'left center'
+                                  }}
+                                  className="h-full w-full max-w-[400px] md:max-w-[700px]"
+                                />
+                              ) : (
+                                <img 
+                                  src={project.gameLogoUrl} 
+                                  alt={project.title} 
+                                  style={{ transform: `scale(${project.logoScale || 1})` }}
+                                  className={`h-full w-auto max-w-[320px] md:max-w-[550px] object-contain object-left origin-left ${project.invertLogo ? 'brightness-0 invert' : ''}`}
+                                  referrerPolicy="no-referrer"
+                                />
+                              )}
                             </div>
                           ) : (
                             <h4 
-                              className="text-4xl md:text-6xl font-display font-bold uppercase tracking-tighter text-white mb-4 transition-colors"
+                              className="text-4xl md:text-6xl font-display font-bold uppercase tracking-tighter text-foreground mb-4 transition-colors"
                               style={{ '--hover-color': projectColor } as React.CSSProperties}
                             >
                               <span className="group-hover:text-[var(--hover-color)] transition-colors">{project.title}</span>
@@ -195,14 +214,14 @@ export default function App() {
                               <Badge 
                                 key={tag} 
                                 variant="outline" 
-                                style={{ color: projectColor, borderColor: `${projectColor}80` }}
-                                className="rounded-none bg-black/40 backdrop-blur-sm text-[9px] font-mono uppercase tracking-widest px-2 py-0.5"
+                                style={{ color: projectColor, borderColor: `${projectColor}CC` }}
+                                className="rounded-none bg-background/60 backdrop-blur-md text-[9px] font-mono uppercase tracking-widest px-2 py-0.5 shadow-sm shadow-foreground/10"
                               >
                                 {tag}
                               </Badge>
                             ))}
                           </div>
-                          <p className="text-white/80 leading-relaxed text-lg font-medium">
+                          <p className="text-foreground/80 leading-relaxed text-lg font-medium">
                             {project.description}
                           </p>
                         </div>
@@ -216,7 +235,7 @@ export default function App() {
         </section>
 
         {/* Experience Section - Clean List Style */}
-        <section id="experience" className="py-32 bg-muted/30 border-y">
+        <section id="experience" className="py-32 bg-background border-y">
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-20">
               <div>
@@ -237,23 +256,23 @@ export default function App() {
                   <motion.div 
                     key={exp.id}
                     {...fadeIn}
-                    className="relative pl-12 border-l-2 border-primary/10 hover:border-accent transition-colors pb-12 last:pb-0"
+                    className="relative pl-12 border-l-2 border-primary/10 hover:border-primary transition-colors pb-12 last:pb-0"
                   >
-                    <div className="absolute -left-[9px] top-0 h-4 w-4 rounded-full bg-background border-2 border-primary group-hover:border-accent transition-colors" />
+                    <div className="absolute -left-[9px] top-0 h-4 w-4 rounded-full bg-background border-2 border-primary group-hover:border-primary transition-colors" />
                     <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
                       <div>
                         <h4 className="text-2xl font-display font-bold uppercase tracking-tight">{exp.company}</h4>
-                        <div className="text-accent font-bold uppercase tracking-widest text-[10px]">{exp.role}</div>
+                        <div className="text-primary font-bold uppercase tracking-widest text-[10px]">{exp.role}</div>
                       </div>
                       <div className="font-mono text-[10px] uppercase tracking-widest opacity-40">{exp.period}</div>
                     </div>
-                    <p className="text-muted-foreground mb-6 max-w-2xl font-medium">
+                    <p className="text-foreground/60 mb-6 max-w-2xl font-medium">
                       {exp.description}
                     </p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
                       {exp.achievements.map((achievement, idx) => (
                         <div key={idx} className="flex items-start gap-3 text-sm">
-                          <div className="mt-1.5 h-1 w-1 bg-accent shrink-0" />
+                          <div className="mt-1.5 h-1 w-1 bg-primary shrink-0" />
                           <span className="opacity-80 leading-tight">{achievement}</span>
                         </div>
                       ))}
@@ -266,17 +285,17 @@ export default function App() {
         </section>
 
         {/* Publications Section */}
-        <section id="writing" className="py-32 px-6 bg-primary/5">
+        <section id="writing" className="py-32 px-6 bg-secondary/5">
           <div className="max-w-7xl mx-auto">
             <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
               <div>
                 <div className="flex items-center gap-4 mb-4">
-                  <div className="h-px w-12 bg-accent" />
-                  <h2 className="text-xs font-bold uppercase tracking-[0.3em] text-accent">Publications</h2>
+                  <div className="h-px w-12 bg-primary" />
+                  <h2 className="text-xs font-bold uppercase tracking-[0.3em] text-primary">Publications</h2>
                 </div>
                 <h3 className="text-5xl md:text-7xl font-display font-bold uppercase tracking-tighter">Thoughts on <br />Production</h3>
               </div>
-              <Button variant="outline" className="rounded-none border-primary text-primary hover:bg-accent hover:border-accent hover:text-accent-foreground font-bold uppercase tracking-widest text-xs h-14 px-10">
+              <Button variant="outline" className="rounded-none border-primary text-primary hover:bg-primary hover:text-primary-foreground font-bold uppercase tracking-widest text-xs h-14 px-10">
                 Full Archive
               </Button>
             </div>
@@ -287,10 +306,10 @@ export default function App() {
                   key={writing.id}
                   href={writing.link}
                   whileHover={{ y: -10 }}
-                  className="p-8 border-2 border-primary/5 hover:border-accent transition-all group flex flex-col h-full"
+                  className="p-8 border-2 border-primary/5 hover:border-primary transition-all group flex flex-col h-full bg-background shadow-sm"
                 >
                   <div className="mb-8">
-                    <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-accent font-bold">
+                    <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-primary font-bold">
                       {writing.category}
                     </span>
                   </div>
@@ -301,7 +320,7 @@ export default function App() {
                     <span className="text-[10px] font-mono uppercase tracking-widest opacity-40">
                       {writing.publication}
                     </span>
-                    <ArrowUpRight className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-all text-accent" />
+                    <ArrowUpRight className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-all text-primary" />
                   </div>
                 </motion.a>
               ))}
@@ -310,43 +329,43 @@ export default function App() {
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="py-40 bg-primary text-primary-foreground relative overflow-hidden">
-          <div className="absolute bottom-0 left-0 w-full h-1/2 bg-accent/5 -skew-y-6 translate-y-1/4 pointer-events-none" />
+        <section id="contact" className="py-40 bg-secondary text-secondary-foreground relative overflow-hidden">
+          <div className="absolute bottom-0 left-0 w-full h-1/2 bg-primary/5 -skew-y-6 translate-y-1/4 pointer-events-none" />
           <div className="max-w-5xl mx-auto px-6 relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
               <div className="text-left">
-                <h2 className="text-xs font-bold uppercase tracking-[0.5em] text-accent mb-8">Get In Touch</h2>
+                <h2 className="text-xs font-bold uppercase tracking-[0.5em] text-primary mb-8">Get In Touch</h2>
                 <h3 className="text-5xl md:text-7xl font-display font-bold uppercase tracking-tighter mb-8 leading-[0.85]">
-                  Let's build the <br />next big <span className="text-accent underline decoration-4 underline-offset-8">experience</span>.
+                  Let's build the <br />next big <span className="text-primary underline decoration-4 underline-offset-8">experience</span>.
                 </h3>
-                <p className="text-primary-foreground/60 text-lg mb-12 max-w-md">
+                <p className="text-secondary-foreground/60 text-lg mb-12 max-w-md">
                   Have a project in mind? Looking for production leadership? Drop me a message and let's talk.
                 </p>
                 <div className="flex items-center gap-6">
-                  <a href="https://www.linkedin.com/in/jacobhull" target="_blank" rel="noopener noreferrer" className="p-4 border border-primary-foreground/20 hover:bg-accent hover:border-accent hover:text-accent-foreground transition-all">
+                  <a href="https://www.linkedin.com/in/jacobhull" target="_blank" rel="noopener noreferrer" className="p-4 border border-secondary-foreground/20 hover:bg-primary hover:border-primary hover:text-primary-foreground transition-all">
                     <Linkedin className="h-6 w-6" />
                   </a>
                 </div>
               </div>
 
-              <Card className="rounded-none border-none bg-background/5 backdrop-blur-xl p-8">
+              <Card className="rounded-none border-none bg-background/5 backdrop-blur-xl p-8 shadow-2xl shadow-black/50">
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="space-y-2">
-                    <Label htmlFor="name" className="text-[10px] uppercase tracking-widest font-bold text-accent">Name</Label>
-                    <Input id="name" required className="rounded-none border-none bg-white text-primary focus:ring-2 focus:ring-accent transition-colors h-12" />
+                    <Label htmlFor="name" className="text-[10px] uppercase tracking-widest font-bold text-primary">Name</Label>
+                    <Input id="name" required className="rounded-none border-none bg-background text-foreground focus:ring-2 focus:ring-primary transition-colors h-12" />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="email" className="text-[10px] uppercase tracking-widest font-bold text-accent">Email</Label>
-                    <Input id="email" type="email" required className="rounded-none border-none bg-white text-primary focus:ring-2 focus:ring-accent transition-colors h-12" />
+                    <Label htmlFor="email" className="text-[10px] uppercase tracking-widest font-bold text-primary">Email</Label>
+                    <Input id="email" type="email" required className="rounded-none border-none bg-background text-foreground focus:ring-2 focus:ring-primary transition-colors h-12" />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="message" className="text-[10px] uppercase tracking-widest font-bold text-accent">Message</Label>
-                    <Textarea id="message" required className="rounded-none border-none bg-white text-primary focus:ring-2 focus:ring-accent transition-colors min-h-[150px]" />
+                    <Textarea id="message" required className="rounded-none border-none bg-background text-foreground focus:ring-2 focus:ring-primary transition-colors min-h-[150px]" />
                   </div>
                   <Button 
                     type="submit" 
                     disabled={formStatus !== 'idle'}
-                    className="w-full rounded-none bg-accent hover:bg-accent/90 text-accent-foreground h-14 font-bold uppercase tracking-widest text-xs"
+                    className="w-full rounded-none bg-primary hover:bg-primary/90 text-primary-foreground h-14 font-bold uppercase tracking-widest text-xs"
                   >
                     {formStatus === 'idle' && <><Send className="mr-2 h-4 w-4" /> Send Message</>}
                     {formStatus === 'submitting' && "Sending..."}
