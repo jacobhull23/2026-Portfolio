@@ -11,6 +11,7 @@ export interface Project {
   id: string;
   title: string;
   role: string;
+  focusArea?: string;
   year: string;
   description: string;
   tags: string[];

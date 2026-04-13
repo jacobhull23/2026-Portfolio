@@ -57,7 +57,7 @@ export default function App() {
       <nav className="fixed top-0 w-full z-50 border-b bg-background/80 backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="font-display text-2xl font-bold tracking-tighter text-primary">
-            JH<span className="text-accent">.</span>
+            Jacob Hull
           </div>
           <div className="hidden md:flex items-center gap-8 text-xs font-bold uppercase tracking-[0.2em]">
             <a href="#projects" className="hover:text-accent transition-colors">Projects</a>
@@ -84,18 +84,18 @@ export default function App() {
               transition={{ duration: 0.8 }}
             >
               <h1 className="font-display text-6xl md:text-9xl font-bold leading-[0.9] tracking-tighter uppercase mb-8">
-                Senior Game <br />
-                <span className="text-primary">Producer</span>
+                Senior Producer & <br />
+                <span className="text-primary">Program Manager</span>
               </h1>
               <div className="flex flex-col md:flex-row md:items-end justify-between gap-12">
                 <div className="max-w-xl">
                   <p className="text-xl md:text-2xl font-medium leading-tight text-foreground/70 mb-8">
-                    Jacob Hull. Product Lead & Senior Producer bridging creative vision and technical execution for the world's most ambitious studios.
+                    Delivering complex, cross-functional products from concept to launch across games and technology.
                   </p>
                   <div className="flex flex-wrap gap-4">
                     <a href="#projects">
                       <Button className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-none h-14 px-10 text-sm font-bold uppercase tracking-widest">
-                        Explore Work
+                        Explore Projects
                       </Button>
                     </a>
                     <div className="flex items-center gap-6 px-6 border border-foreground/20">
@@ -150,7 +150,7 @@ export default function App() {
                   <motion.div key={project.id} variants={fadeIn} className="group relative">
                     <div 
                       className="relative aspect-[21/9] overflow-hidden bg-muted border-2 border-primary/10 transition-colors"
-                      style={{ borderColor: 'transparent' }} // We'll use a pseudo-element or just inline style for hover
+                      style={{ borderColor: 'transparent' }}
                     >
                       <div 
                         className="absolute inset-0 border-2 border-transparent group-hover:border-[var(--project-color)] transition-colors z-20 pointer-events-none"
@@ -162,15 +162,15 @@ export default function App() {
                         className="object-cover w-full h-full transition-all duration-1000 scale-105 group-hover:scale-100"
                         referrerPolicy="no-referrer"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent opacity-95 group-hover:opacity-90 transition-opacity" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
                       
                       <div className="absolute bottom-0 left-0 w-full p-8 md:p-16 flex flex-col md:flex-row md:items-end justify-between gap-8 z-10">
                         <div className="max-w-2xl">
                           <Badge 
                             style={{ backgroundColor: projectColor }}
-                            className={`rounded-none font-mono text-[10px] uppercase tracking-widest px-3 mb-6 border border-foreground/10 shadow-lg shadow-foreground/20 ${isLight ? 'text-black' : 'text-white'}`}
+                            className={`rounded-none font-mono text-[9px] uppercase tracking-widest px-4 h-6 inline-flex items-center justify-center mb-6 border border-foreground/10 shadow-lg shadow-foreground/20 ${isLight ? 'text-black' : 'text-white'}`}
                           >
-                            {project.year}
+                            <span className="leading-none">{project.year}</span>
                           </Badge>
                           {project.gameLogoUrl ? (
                             <div className="mb-8 h-24 md:h-40 flex items-center">
@@ -203,25 +203,18 @@ export default function App() {
                             </div>
                           ) : (
                             <h4 
-                              className="text-4xl md:text-6xl font-display font-bold uppercase tracking-tighter text-foreground mb-4 transition-colors"
+                              className="text-4xl md:text-6xl font-display font-bold uppercase tracking-tighter text-white mb-4 transition-colors"
                               style={{ '--hover-color': projectColor } as React.CSSProperties}
                             >
                               <span className="group-hover:text-[var(--hover-color)] transition-colors">{project.title}</span>
                             </h4>
                           )}
-                          <div className="flex flex-wrap gap-2 mb-6">
-                            {project.tags.map(tag => (
-                              <Badge 
-                                key={tag} 
-                                variant="outline" 
-                                style={{ color: projectColor, borderColor: `${projectColor}CC` }}
-                                className="rounded-none bg-background/60 backdrop-blur-md text-[9px] font-mono uppercase tracking-widest px-2 py-0.5 shadow-sm shadow-foreground/10"
-                              >
-                                {tag}
-                              </Badge>
-                            ))}
+                          <div className="flex flex-col mb-6">
+                            <div className="text-white font-bold uppercase tracking-widest text-sm md:text-base">
+                              {project.role} {project.focusArea && <span className="opacity-60 font-medium">· {project.focusArea}</span>}
+                            </div>
                           </div>
-                          <p className="text-foreground/80 leading-relaxed text-lg font-medium">
+                          <p className="text-white/90 leading-relaxed text-lg font-medium">
                             {project.description}
                           </p>
                         </div>
@@ -234,7 +227,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* Experience Section - Clean List Style */}
+        {/* Experience Section - Secondary Focus */}
         <section id="experience" className="py-32 bg-background border-y">
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-20">
@@ -381,7 +374,7 @@ export default function App() {
       <footer className="py-16 px-6 bg-background">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
           <div className="font-display text-3xl font-bold tracking-tighter text-primary">
-            JH<span className="text-accent">.</span>
+            Jacob Hull
           </div>
           <div className="flex flex-wrap justify-center gap-12 text-[10px] font-bold uppercase tracking-[0.3em] opacity-40">
             <a href="#projects" className="hover:opacity-100 transition-opacity">Projects</a>
