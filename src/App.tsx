@@ -237,9 +237,9 @@ export default function App() {
                     <div className="h-px w-12 bg-accent" />
                     <h2 className="text-xs font-bold uppercase tracking-[0.3em] text-accent">Career Path</h2>
                   </div>
-                  <h3 className="text-5xl font-display font-bold uppercase tracking-tighter mb-8">Studio <br />History</h3>
+                  <h3 className="text-5xl font-display font-bold uppercase tracking-tighter mb-8">Experience <br />& Impact</h3>
                   <p className="text-muted-foreground font-medium leading-relaxed">
-                    Over a decade of production leadership, from specialized data platforms to world-renowned AAA franchises.
+                    A decade of leading projects across AAA games, live service platforms, and early-stage products — from concept through launch and live operations.
                   </p>
                 </div>
               </div>
@@ -252,21 +252,23 @@ export default function App() {
                     className="relative pl-12 border-l-2 border-primary/10 hover:border-primary transition-colors pb-12 last:pb-0"
                   >
                     <div className="absolute -left-[9px] top-0 h-4 w-4 rounded-full bg-background border-2 border-primary group-hover:border-primary transition-colors" />
-                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
+                    <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-4">
                       <div>
                         <h4 className="text-2xl font-display font-bold uppercase tracking-tight">{exp.company}</h4>
                         <div className="text-primary font-bold uppercase tracking-widest text-[10px]">{exp.role}</div>
                       </div>
-                      <div className="font-mono text-[10px] uppercase tracking-widest opacity-40">{exp.period}</div>
+                      <Badge variant="secondary" className="rounded-none font-mono text-[10px] uppercase tracking-widest px-3 py-1 border border-primary/10 bg-primary/5 text-primary/80 shrink-0">
+                        {exp.period}
+                      </Badge>
                     </div>
                     <p className="text-foreground/60 mb-6 max-w-2xl font-medium">
                       {exp.description}
                     </p>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
+                    <div className="grid grid-cols-1 gap-y-3">
                       {exp.achievements.map((achievement, idx) => (
                         <div key={idx} className="flex items-start gap-3 text-sm">
-                          <div className="mt-1.5 h-1 w-1 bg-primary shrink-0" />
-                          <span className="opacity-80 leading-tight">{achievement}</span>
+                          <div className="mt-1.5 h-1.5 w-1.5 bg-primary/40 shrink-0" />
+                          <span className="opacity-80 leading-relaxed">{achievement}</span>
                         </div>
                       ))}
                     </div>
@@ -286,7 +288,7 @@ export default function App() {
                   <div className="h-px w-12 bg-primary" />
                   <h2 className="text-xs font-bold uppercase tracking-[0.3em] text-primary">Publications</h2>
                 </div>
-                <h3 className="text-5xl md:text-7xl font-display font-bold uppercase tracking-tighter">Thoughts on <br />Production</h3>
+                <h3 className="text-5xl md:text-7xl font-display font-bold uppercase tracking-tighter">Articles</h3>
               </div>
               <Button variant="outline" className="rounded-none border-primary text-primary hover:bg-primary hover:text-primary-foreground font-bold uppercase tracking-widest text-xs h-14 px-10">
                 Full Archive
@@ -298,6 +300,8 @@ export default function App() {
                 <motion.a 
                   key={writing.id}
                   href={writing.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   whileHover={{ y: -10 }}
                   className="p-8 border-2 border-primary/5 hover:border-primary transition-all group flex flex-col h-full bg-background shadow-sm"
                 >

@@ -4,49 +4,49 @@ export const EXPERIENCES: Experience[] = [
   {
     id: '1',
     company: 'Riot Games',
-    role: 'Senior Game Producer',
-    period: '2021 - Present',
-    description: 'Leading production efforts on high-stakes competitive titles, focusing on player experience and technical excellence.',
+    role: 'Advanced Producer · Program / Delivery Lead',
+    period: '2025–Present',
+    description: 'Leading cross-functional delivery across globally distributed teams on live and in-development titles, including VALORANT and 2XKO.',
     achievements: [
-      'Managed cross-functional teams for VALORANT live operations.',
-      'Driving production strategy for 2XKO, Riot\'s upcoming fighting game.',
-      'Optimized development pipelines for global scale.'
+      'Owned regional delivery for 2XKO in Sydney, driving development from Closed Beta through launch and into live operations',
+      'Led player-facing systems across personalisation, social, and Trust & Safety domains, partnering with engineering, product, legal, and compliance',
+      'Coordinated multi-region teams (US, APAC) to deliver platform systems, compliance features, and live service capabilities at scale'
     ]
   },
   {
     id: '2',
     company: 'ZA/UM Studio',
-    role: 'Game Producer',
-    period: '2020 - 2021',
-    description: 'Oversaw development of "Zero Parades", ensuring creative vision alignment with production milestones.',
+    role: 'Technical Producer → Senior Producer',
+    period: '2022–2025',
+    description: 'Joined at project inception to help shape product direction and establish scalable production systems across a globally distributed studio.',
     achievements: [
-      'Facilitated collaboration between narrative and technical teams.',
-      'Managed external partnerships and localization pipelines.',
-      'Streamlined sprint planning for complex narrative systems.'
+      'Designed and implemented a cross-functional operating model, aligning ~70 developers into Agile feature teams',
+      'Improved delivery predictability and reduced roadmap timelines by transitioning from waterfall to cross-functional execution',
+      'Managed and coached 4 producers, while partnering with leadership on scope, planning, and resource allocation'
     ]
   },
   {
     id: '3',
-    company: 'TT Games',
-    role: 'Game Producer',
-    period: '2016 - 2020',
-    description: 'Produced major titles in the LEGO franchise, managing large-scale IP partnerships and multi-platform launches.',
+    company: 'TT Games (Warner Bros.)',
+    role: 'Producer',
+    period: '2020–2022',
+    description: 'Delivered large-scale AAA titles within a multi-team production environment, working across internal teams and external licensors.',
     achievements: [
-      'Delivered LEGO Star Wars: The Skywalker Saga, the most ambitious LEGO game to date.',
-      'Managed an unannounced LEGO title involving a major IP partnership (cancelled).',
-      'Coordinated with Warner Bros. and IP holders on brand alignment.'
+      'Coordinated cross-functional teams (LEGO, Audio, VFX, gameplay) to deliver LEGO Star Wars: The Skywalker Saga',
+      'Managed dependencies, milestone planning, and stakeholder alignment across complex production pipelines',
+      'Partnered with licensors (Lucasfilm, Disney, Warner Bros., LEGO) to ensure IP compliance and approval alignment'
     ]
   },
   {
     id: '4',
     company: 'KPV LAB',
-    role: 'Producer',
-    period: '2014 - 2016',
-    description: 'Led the development of a cutting-edge data visualization and timeline platform.',
+    role: 'Product Manager (Lead Online Producer → Product Manager)',
+    period: '2017–2020',
+    description: 'Early team member shaping product direction and delivery for a data visualisation platform from concept through scale.',
     achievements: [
-      'Bridged the gap between data science and user interface design.',
-      'Managed the full product lifecycle from concept to deployment.',
-      'Implemented agile methodologies in a research-heavy environment.'
+      'Defined product vision and core user experience, working directly with engineers on platform systems and architecture',
+      'Established delivery processes and workflows in an R&D environment, enabling scalable product development',
+      'Led recruitment and management of a small cross-functional team, supporting growth from early concept to funded product'
     ]
   }
 ];
@@ -98,6 +98,7 @@ export const PROJECTS: Project[] = [
     id: 'p-disco',
     title: 'Disco Elysium',
     role: 'Technical Producer',
+    focusArea: 'Post-Launch',
     year: '2022–2024 · Post-Launch',
     description: 'Led technical delivery of post-launch content, including new dialogue, voice integration, and additional features. Coordinated creative and technical teams to ship updates while maintaining quality and stylistic consistency.',
     tags: ['ZA/UM', 'RPG', 'Live Ops'],
@@ -149,26 +150,26 @@ export const PROJECTS: Project[] = [
 export const WRITINGS: Writing[] = [
   {
     id: 'w1',
-    title: 'The Production of Play: Managing Creative Chaos',
-    publication: 'GameDev Insights',
-    date: '2023',
-    link: '#',
-    category: 'Production'
+    title: 'Survival of the Fittest: How Developer Abstraction Games Evolved to Get ARK on PlayStation',
+    publication: 'Push Square',
+    date: 'Dec 2016',
+    link: 'https://www.pushsquare.com/news/2016/12/feature_how_abstraction_games_evolved_to_get_ark_on_ps4',
+    category: 'Development Story'
   },
   {
     id: 'w2',
-    title: 'Why Narrative Games Need Better Production Pipelines',
-    publication: 'Industry Quarterly',
-    date: '2021',
+    title: 'Shadow Warrior 2: Not Silent, Very Deadly',
+    publication: 'Official PlayStation Magazine',
+    date: 'Preview',
     link: '#',
-    category: 'Analysis'
+    category: 'Preview'
   },
   {
     id: 'w3',
-    title: 'The Future of IP Partnerships in Gaming',
-    publication: 'Media Trends',
-    date: '2019',
-    link: '#',
-    category: 'Business'
+    title: 'Ni no Kuni: Wrath of the White Witch Review',
+    publication: 'Push Square',
+    date: 'Review',
+    link: 'https://www.pushsquare.com/reviews/ps4/ni_no_kuni_wrath_of_the_white_witch_remastered',
+    category: 'Review'
   }
 ];
