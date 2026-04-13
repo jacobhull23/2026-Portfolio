@@ -12,7 +12,9 @@ import {
   Calendar,
   Layers,
   ArrowUpRight,
-  Send
+  Send,
+  Monitor,
+  Smartphone
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -36,6 +38,13 @@ const staggerContainer = {
       staggerChildren: 0.1
     }
   }
+};
+
+const getPlatformIcon = (platform: string) => {
+  const p = platform.toLowerCase();
+  if (p.includes('pc')) return <Monitor className="h-3 w-3" />;
+  if (p.includes('mobile')) return <Smartphone className="h-3 w-3" />;
+  return <Gamepad2 className="h-3 w-3" />;
 };
 
 export default function App() {
@@ -166,12 +175,27 @@ export default function App() {
                       
                       <div className="absolute bottom-0 left-0 w-full p-8 md:p-16 flex flex-col md:flex-row md:items-end justify-between gap-8 z-10">
                         <div className="max-w-2xl">
-                          <Badge 
-                            style={{ backgroundColor: projectColor }}
-                            className={`rounded-none font-mono text-[9px] uppercase tracking-widest px-4 h-6 inline-flex items-center justify-center mb-6 border border-foreground/10 shadow-lg shadow-foreground/20 ${isLight ? 'text-black' : 'text-white'}`}
-                          >
-                            <span className="leading-none">{project.year}</span>
-                          </Badge>
+                          <div className="flex flex-col gap-3 mb-6">
+                            <div>
+                              <Badge 
+                                style={{ backgroundColor: projectColor }}
+                                className={`rounded-none font-mono text-[9px] uppercase tracking-widest px-4 h-6 inline-flex items-center justify-center border border-foreground/10 shadow-lg shadow-foreground/20 ${isLight ? 'text-black' : 'text-white'}`}
+                              >
+                                <span className="leading-none">{project.year}</span>
+                              </Badge>
+                            </div>
+                            <div className="flex flex-wrap gap-2">
+                              {project.platforms?.map((platform) => (
+                                <div 
+                                  key={platform}
+                                  className="h-6 px-3 bg-black/60 backdrop-blur-md border border-white/20 flex items-center gap-2 text-[9px] font-mono uppercase tracking-widest text-white shadow-sm"
+                                >
+                                  {getPlatformIcon(platform)}
+                                  <span>{platform}</span>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
                           {project.gameLogoUrl ? (
                             <div className="mb-8 h-24 md:h-40 flex items-center">
                               {project.useColorForLogo ? (

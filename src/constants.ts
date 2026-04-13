@@ -64,7 +64,8 @@ export const PROJECTS: Project[] = [
     studioLogoUrl: 'https://www.riotgames.com/darkroom/800/87521fcaeca5867538ae7f46ac152740:2f8144e17957078916e41d2410c111c3/002-rg-2021-full-lockup-offwhite.jpg',
     gameLogoUrl: 'https://www.pngall.com/wp-content/uploads/13/Valorant-Logo-PNG-Cutout.png',
     color: '#fb5057',
-    logoScale: 2.0
+    logoScale: 2.0,
+    platforms: ['PC', 'PS5', 'Xbox Series X/S']
   },
   {
     id: 'p2',
@@ -78,7 +79,8 @@ export const PROJECTS: Project[] = [
     studioLogoUrl: 'https://www.riotgames.com/darkroom/800/87521fcaeca5867538ae7f46ac152740:2f8144e17957078916e41d2410c111c3/002-rg-2021-full-lockup-offwhite.jpg',
     gameLogoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/2XKO_game_logo.svg/960px-2XKO_game_logo.svg.png',
     color: '#2596be',
-    logoScale: 1.1
+    logoScale: 1.1,
+    platforms: ['PC', 'PS5', 'Xbox Series X/S']
   },
   {
     id: 'p3',
@@ -92,7 +94,8 @@ export const PROJECTS: Project[] = [
     studioLogoUrl: 'https://discoelysium.wiki.gg/images/thumb/Logo-zaum-shadow.png/234px-Logo-zaum-shadow.png?17b171',
     gameLogoUrl: 'https://www.gematsu.com/wp-content/uploads/2025/09/ZERO-PARADES-For-Dead-Spies_2025_09-24-25_012.png',
     color: '#facc15',
-    logoScale: 1.1
+    logoScale: 1.1,
+    platforms: ['PC', 'PS5']
   },
   {
     id: 'p-disco',
@@ -106,7 +109,8 @@ export const PROJECTS: Project[] = [
     studioLogoUrl: 'https://discoelysium.wiki.gg/images/thumb/Logo-zaum-shadow.png/234px-Logo-zaum-shadow.png?17b171',
     gameLogoUrl: 'https://shop.discoelysium.com/cdn/shop/t/4/assets/logo-image-file.png?v=49948319634983917661608219677',
     color: '#ff6b00',
-    logoScale: 1.1
+    logoScale: 1.1,
+    platforms: ['PC', 'PS5', 'Xbox Series X/S', 'Nintendo Switch', 'Mobile']
   },
   {
     id: 'p4',
@@ -120,7 +124,8 @@ export const PROJECTS: Project[] = [
     studioLogoUrl: 'https://upload.wikimedia.org/wikipedia/en/9/96/TT_Games.png',
     gameLogoUrl: 'https://www.jennystroom.nl/img/LEGOSWTSS.png',
     color: '#d11013',
-    logoScale: 1.2
+    logoScale: 1.2,
+    platforms: ['PC', 'PS4', 'PS5', 'Xbox One', 'Xbox Series X/S', 'Nintendo Switch']
   },
   {
     id: 'p5',

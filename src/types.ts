@@ -22,6 +22,7 @@ export interface Project {
   invertLogo?: boolean;
   logoScale?: number;
   useColorForLogo?: boolean;
+  platforms?: string[];
 }
 
 export interface Writing {
