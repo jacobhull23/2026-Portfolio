@@ -38,6 +38,7 @@
 
 @layer base {
   :root {
+    color-scheme: light;
     --background: #ece5de;
     --foreground: #151927;
     --card: #ece5de;

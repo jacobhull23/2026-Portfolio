@@ -101,13 +101,13 @@ export default function App() {
                   <p className="text-xl md:text-2xl font-medium leading-tight text-foreground/70 mb-8">
                     Delivering complex, cross-functional products from concept to launch across games and technology.
                   </p>
-                  <div className="flex flex-wrap gap-4">
-                    <a href="#projects">
-                      <Button className="bg-primary hover:bg-foreground hover:text-background text-primary-foreground rounded-none h-14 px-10 text-sm font-bold uppercase tracking-widest transition-all duration-300">
+                  <div className="flex flex-col sm:flex-row flex-wrap gap-4">
+                    <a href="#projects" className="w-full sm:w-auto">
+                      <Button className="w-full sm:w-auto bg-primary hover:bg-foreground hover:text-background text-primary-foreground rounded-none h-14 px-10 text-sm font-bold uppercase tracking-widest transition-all duration-300">
                         Explore Projects
                       </Button>
                     </a>
-                    <div className="flex items-center gap-6 px-6 border border-foreground/20">
+                    <div className="flex items-center justify-center sm:justify-start gap-6 px-6 h-14 border border-foreground/20 w-full sm:w-auto">
                       <a href="https://www.linkedin.com/in/jacobhull" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors flex items-center gap-2 text-xs font-bold uppercase tracking-widest">
                         <Linkedin className="h-5 w-5" /> LinkedIn
                       </a>
@@ -156,24 +156,29 @@ export default function App() {
                 ) : false;
 
                 return (
-                  <motion.div key={project.id} variants={fadeIn} className="group relative">
-                    <div 
-                      className="relative aspect-[21/9] overflow-hidden bg-muted border-2 border-primary/10 transition-colors"
-                      style={{ borderColor: 'transparent' }}
-                    >
-                      <div 
-                        className="absolute inset-0 border-2 border-transparent group-hover:border-[var(--project-color)] transition-colors z-20 pointer-events-none"
-                        style={{ '--project-color': projectColor } as React.CSSProperties}
-                      />
+                  <motion.div 
+                    key={project.id} 
+                    className="group relative flex flex-col border-2 border-primary/10 transition-colors"
+                    whileInView="active"
+                    viewport={{ margin: "-20% 0px -20% 0px" }}
+                    style={{ '--project-color': projectColor } as React.CSSProperties}
+                    variants={{
+                      active: { borderColor: projectColor, opacity: 1, y: 0 },
+                      initial: { borderColor: 'rgba(var(--primary), 0.1)', opacity: 0, y: 20 }
+                    }}
+                    initial="initial"
+                  >
+                    <div className="relative aspect-[16/9] md:aspect-[21/9] overflow-hidden bg-muted">
                       <img 
                         src={project.imageUrl} 
                         alt={project.title}
                         className="object-cover w-full h-full transition-all duration-1000 scale-105 group-hover:scale-100"
                         referrerPolicy="no-referrer"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity hidden md:block" />
+                    </div>
                       
-                      <div className="absolute bottom-0 left-0 w-full p-8 md:p-16 flex flex-col md:flex-row md:items-end justify-between gap-8 z-10">
+                    <div className="md:absolute md:bottom-0 md:left-0 w-full p-6 md:p-16 flex flex-col md:flex-row md:items-end justify-between gap-8 z-10 bg-background md:bg-transparent">
                         <div className="max-w-2xl">
                           <div className="flex flex-col gap-3 mb-6">
                             <div>
@@ -184,11 +189,11 @@ export default function App() {
                                 <span className="leading-none">{project.year}</span>
                               </Badge>
                             </div>
-                            <div className="flex flex-wrap gap-2">
+                            <div className="flex flex-wrap gap-2 md:hidden">
                               {project.platforms?.map((platform) => (
                                 <div 
                                   key={platform}
-                                  className="h-6 px-3 bg-black/60 backdrop-blur-md border border-white/20 flex items-center gap-2 text-[9px] font-mono uppercase tracking-widest text-white shadow-sm"
+                                  className="h-6 px-3 bg-black/5 border border-black/10 flex items-center gap-2 text-[9px] font-mono uppercase tracking-widest text-foreground shadow-sm"
                                 >
                                   {getPlatformIcon(platform)}
                                   <span>{platform}</span>
@@ -196,52 +201,62 @@ export default function App() {
                               ))}
                             </div>
                           </div>
-                          {project.gameLogoUrl ? (
-                            <div className="mb-8 h-24 md:h-40 flex items-center">
-                              {project.useColorForLogo ? (
-                                <div 
-                                  style={{ 
-                                    backgroundColor: projectColor,
-                                    maskImage: `url(${project.gameLogoUrl})`,
-                                    WebkitMaskImage: `url(${project.gameLogoUrl})`,
-                                    maskSize: 'contain',
-                                    WebkitMaskSize: 'contain',
-                                    maskRepeat: 'no-repeat',
-                                    WebkitMaskRepeat: 'no-repeat',
-                                    maskPosition: 'left center',
-                                    WebkitMaskPosition: 'left center',
-                                    transform: `scale(${project.logoScale || 1})`,
-                                    transformOrigin: 'left center'
-                                  }}
-                                  className="h-full w-full max-w-[400px] md:max-w-[700px]"
-                                />
-                              ) : (
-                                <img 
-                                  src={project.gameLogoUrl} 
-                                  alt={project.title} 
-                                  style={{ transform: `scale(${project.logoScale || 1})` }}
-                                  className={`h-full w-auto max-w-[320px] md:max-w-[550px] object-contain object-left origin-left ${project.invertLogo ? 'brightness-0 invert' : ''}`}
-                                  referrerPolicy="no-referrer"
-                                />
-                              )}
-                            </div>
-                          ) : (
-                            <h4 
-                              className="text-4xl md:text-6xl font-display font-bold uppercase tracking-tighter text-white mb-4 transition-colors"
-                              style={{ '--hover-color': projectColor } as React.CSSProperties}
-                            >
-                              <span className="group-hover:text-[var(--hover-color)] transition-colors">{project.title}</span>
-                            </h4>
-                          )}
-                          <div className="flex flex-col mb-6">
-                            <div className="text-white font-bold uppercase tracking-widest text-sm md:text-base">
-                              {project.role} {project.focusArea && <span className="opacity-60 font-medium">· {project.focusArea}</span>}
-                            </div>
+                          <div className="hidden md:flex flex-wrap gap-2">
+                            {project.platforms?.map((platform) => (
+                              <div 
+                                key={platform}
+                                className="h-6 px-3 bg-black/60 backdrop-blur-md border border-white/20 flex items-center gap-2 text-[9px] font-mono uppercase tracking-widest text-white shadow-sm"
+                              >
+                                {getPlatformIcon(platform)}
+                                <span>{platform}</span>
+                              </div>
+                            ))}
                           </div>
-                          <p className="text-white/90 leading-relaxed text-lg font-medium">
-                            {project.description}
-                          </p>
+                        {project.gameLogoUrl ? (
+                          <div className="mb-8 h-16 md:h-40 flex items-center">
+                            {project.useColorForLogo ? (
+                              <div 
+                                style={{ 
+                                  backgroundColor: projectColor,
+                                  maskImage: `url(${project.gameLogoUrl})`,
+                                  WebkitMaskImage: `url(${project.gameLogoUrl})`,
+                                  maskSize: 'contain',
+                                  WebkitMaskSize: 'contain',
+                                  maskRepeat: 'no-repeat',
+                                  WebkitMaskRepeat: 'no-repeat',
+                                  maskPosition: 'left center',
+                                  WebkitMaskPosition: 'left center',
+                                  transform: `scale(${project.logoScale || 1})`,
+                                  transformOrigin: 'left center'
+                                }}
+                                className="h-full w-full max-w-[280px] md:max-w-[700px]"
+                              />
+                            ) : (
+                              <img 
+                                src={project.gameLogoUrl} 
+                                alt={project.title} 
+                                style={{ transform: `scale(${project.logoScale || 1})` }}
+                                className={`h-full w-auto max-w-[240px] md:max-w-[550px] object-contain object-left origin-left ${project.invertLogo ? 'md:brightness-0 md:invert' : ''}`}
+                                referrerPolicy="no-referrer"
+                              />
+                            )}
+                          </div>
+                        ) : (
+                          <h4 
+                            className="text-3xl md:text-6xl font-display font-bold uppercase tracking-tighter text-foreground md:text-white mb-4 transition-colors"
+                            style={{ '--hover-color': projectColor } as React.CSSProperties}
+                          >
+                            <span className="group-hover:text-[var(--hover-color)] transition-colors">{project.title}</span>
+                          </h4>
+                        )}
+                        <div className="flex flex-col mb-6">
+                          <div className="text-foreground md:text-white font-bold uppercase tracking-widest text-sm md:text-base">
+                            {project.role} {project.focusArea && <span className="opacity-60 font-medium">· {project.focusArea}</span>}
+                          </div>
                         </div>
+                        <p className="text-foreground/80 md:text-white/90 leading-relaxed text-base md:text-lg font-medium">
+                          {project.description}
+                        </p>
                       </div>
                     </div>
                   </motion.div>
@@ -274,16 +289,28 @@ export default function App() {
                     key={exp.id}
                     {...fadeIn}
                     className="group relative pl-12 border-l-2 border-primary/10 hover:border-primary transition-colors pb-12 last:pb-0"
+                    whileInView="active"
+                    viewport={{ margin: "-30% 0px -30% 0px" }}
                   >
-                    <div className="absolute -left-[9px] top-0 h-4 w-4 rounded-full bg-background border-2 border-primary group-hover:bg-primary transition-colors duration-300" />
+                    <motion.div 
+                      className="absolute -left-[9px] top-0 h-4 w-4 rounded-full bg-background border-2 border-primary transition-colors duration-300"
+                      variants={{
+                        active: { backgroundColor: 'var(--primary)' }
+                      }}
+                    />
                     <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-4">
                       <div>
                         <h4 className="text-2xl font-display font-bold uppercase tracking-tight">{exp.company}</h4>
                         <div className="text-primary font-bold uppercase tracking-widest text-[10px]">{exp.role}</div>
                       </div>
-                      <Badge variant="secondary" className="rounded-none font-mono text-[10px] uppercase tracking-widest px-3 py-1 border border-primary/10 bg-primary/5 text-primary/80 shrink-0 group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary transition-colors duration-300">
+                      <motion.div
+                        variants={{
+                          active: { backgroundColor: 'var(--primary)', color: 'var(--primary-foreground)', borderColor: 'var(--primary)' }
+                        }}
+                        className="rounded-none font-mono text-[10px] uppercase tracking-widest px-3 py-1 border border-primary/10 bg-primary/5 text-primary/80 shrink-0 transition-colors duration-300 flex items-center justify-center"
+                      >
                         {exp.period}
-                      </Badge>
+                      </motion.div>
                     </div>
                     <p className="text-foreground/60 mb-6 max-w-2xl font-medium">
                       {exp.description}
@@ -314,12 +341,14 @@ export default function App() {
                 </div>
                 <h3 className="text-5xl md:text-7xl font-display font-bold uppercase tracking-tighter">Articles</h3>
               </div>
-              <Button variant="outline" className="rounded-none border-primary text-primary hover:bg-primary hover:text-primary-foreground font-bold uppercase tracking-widest text-xs h-14 px-10">
-                Full Archive
-              </Button>
+              <div className="hidden md:block">
+                <Button variant="outline" className="rounded-none border-primary text-primary hover:bg-primary hover:text-primary-foreground font-bold uppercase tracking-widest text-xs h-14 px-10">
+                  Full Archive
+                </Button>
+              </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
               {WRITINGS.map((writing) => (
                 <motion.a 
                   key={writing.id}
@@ -345,6 +374,12 @@ export default function App() {
                   </div>
                 </motion.a>
               ))}
+            </div>
+
+            <div className="md:hidden">
+              <Button variant="outline" className="w-full rounded-none border-primary text-primary hover:bg-primary hover:text-primary-foreground font-bold uppercase tracking-widest text-xs h-14">
+                Full Archive
+              </Button>
             </div>
           </div>
         </section>
@@ -383,16 +418,16 @@ export default function App() {
                   
                   <div className="space-y-2">
                     <Label htmlFor="name" className="text-[10px] uppercase tracking-widest font-bold text-primary">Name</Label>
-                    <Input id="name" name="name" required className="rounded-none border-none bg-background text-foreground focus:ring-2 focus:ring-primary transition-colors h-12" />
+                    <Input id="name" name="name" required className="rounded-none border-none bg-[#ece5de] text-[#151927] focus:ring-2 focus:ring-primary transition-colors h-12" />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="email" className="text-[10px] uppercase tracking-widest font-bold text-primary">Email</Label>
-                    <Input id="email" name="email" type="email" required className="rounded-none border-none bg-background text-foreground focus:ring-2 focus:ring-primary transition-colors h-12" />
+                    <Input id="email" name="email" type="email" required className="rounded-none border-none bg-[#ece5de] text-[#151927] focus:ring-2 focus:ring-primary transition-colors h-12" />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="message" className="text-[10px] uppercase tracking-widest font-bold text-primary">Message</Label>
                     <div className="relative">
-                      <Textarea id="message" name="message" required className="rounded-none border-none bg-background text-foreground focus:ring-2 focus:ring-primary transition-colors min-h-[150px]" />
+                      <Textarea id="message" name="message" required className="rounded-none border-none bg-[#ece5de] text-[#151927] focus:ring-2 focus:ring-primary transition-colors min-h-[150px]" />
                     </div>
                   </div>
                   <Button 
