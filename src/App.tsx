@@ -75,7 +75,7 @@ export default function App() {
             <a href="#contact" className="hover:text-accent transition-colors">Contact</a>
           </div>
           <a href="https://www.linkedin.com/in/jacobhull" target="_blank" rel="noopener noreferrer">
-            <Button variant="default" size="sm" className="rounded-none bg-primary hover:bg-primary/90 px-6 font-bold uppercase tracking-widest text-[10px]">
+            <Button variant="default" size="sm" className="rounded-none bg-primary hover:bg-foreground hover:text-background px-6 font-bold uppercase tracking-widest text-[10px] transition-all duration-300">
               Resume
             </Button>
           </a>
@@ -273,15 +273,15 @@ export default function App() {
                   <motion.div 
                     key={exp.id}
                     {...fadeIn}
-                    className="relative pl-12 border-l-2 border-primary/10 hover:border-primary transition-colors pb-12 last:pb-0"
+                    className="group relative pl-12 border-l-2 border-primary/10 hover:border-primary transition-colors pb-12 last:pb-0"
                   >
-                    <div className="absolute -left-[9px] top-0 h-4 w-4 rounded-full bg-background border-2 border-primary group-hover:border-primary transition-colors" />
+                    <div className="absolute -left-[9px] top-0 h-4 w-4 rounded-full bg-background border-2 border-primary group-hover:bg-primary transition-colors duration-300" />
                     <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-4">
                       <div>
                         <h4 className="text-2xl font-display font-bold uppercase tracking-tight">{exp.company}</h4>
                         <div className="text-primary font-bold uppercase tracking-widest text-[10px]">{exp.role}</div>
                       </div>
-                      <Badge variant="secondary" className="rounded-none font-mono text-[10px] uppercase tracking-widest px-3 py-1 border border-primary/10 bg-primary/5 text-primary/80 shrink-0">
+                      <Badge variant="secondary" className="rounded-none font-mono text-[10px] uppercase tracking-widest px-3 py-1 border border-primary/10 bg-primary/5 text-primary/80 shrink-0 group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary transition-colors duration-300">
                         {exp.period}
                       </Badge>
                     </div>
@@ -371,15 +371,16 @@ export default function App() {
 
               <Card className="rounded-none border-none bg-background/5 backdrop-blur-xl p-8 shadow-2xl shadow-black/50">
                 <form 
-                  action="https://formspree.io/f/mjkgpzyw" 
+                  action="https://formsubmit.co/jacobhull23@gmail.com" 
                   method="POST"
-                  onSubmit={(e) => {
-                    // We still use the state for the UI feedback, but let the form submit
-                    setFormStatus('submitting');
-                  }}
+                  onSubmit={() => setFormStatus('submitting')}
                   className="space-y-6"
                 >
-                  <input type="hidden" name="_replyto" value="jacobhull23@gmail.com" />
+                  {/* FormSubmit Configuration */}
+                  <input type="hidden" name="_subject" value="New Portfolio Message!" />
+                  <input type="hidden" name="_template" value="table" />
+                  <input type="hidden" name="_next" value="https://www.jacobhull.me" />
+                  
                   <div className="space-y-2">
                     <Label htmlFor="name" className="text-[10px] uppercase tracking-widest font-bold text-primary">Name</Label>
                     <Input id="name" name="name" required className="rounded-none border-none bg-background text-foreground focus:ring-2 focus:ring-primary transition-colors h-12" />
@@ -390,7 +391,9 @@ export default function App() {
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="message" className="text-[10px] uppercase tracking-widest font-bold text-primary">Message</Label>
-                    <Textarea id="message" name="message" required className="rounded-none border-none bg-background text-foreground focus:ring-2 focus:ring-primary transition-colors min-h-[150px]" />
+                    <div className="relative">
+                      <Textarea id="message" name="message" required className="rounded-none border-none bg-background text-foreground focus:ring-2 focus:ring-primary transition-colors min-h-[150px]" />
+                    </div>
                   </div>
                   <Button 
                     type="submit" 
@@ -410,14 +413,14 @@ export default function App() {
 
       <footer className="py-16 px-6 bg-background">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
-          <div className="font-display text-3xl font-bold tracking-tighter text-primary">
+          <a href="/" className="font-display text-3xl font-bold tracking-tighter text-primary hover:text-primary/80 transition-colors">
             Jacob Hull
-          </div>
+          </a>
           <div className="flex flex-wrap justify-center gap-12 text-[10px] font-bold uppercase tracking-[0.3em] opacity-40">
-            <a href="#projects" className="hover:opacity-100 transition-opacity">Projects</a>
-            <a href="#experience" className="hover:opacity-100 transition-opacity">Studio History</a>
-            <a href="#writing" className="hover:opacity-100 transition-opacity">Publications</a>
-            <a href="#contact" className="hover:opacity-100 transition-opacity">Contact</a>
+            <a href="#projects" className="hover:text-primary hover:opacity-100 transition-all">Projects</a>
+            <a href="#experience" className="hover:text-primary hover:opacity-100 transition-all">Studio History</a>
+            <a href="#writing" className="hover:text-primary hover:opacity-100 transition-all">Publications</a>
+            <a href="#contact" className="hover:text-primary hover:opacity-100 transition-all">Contact</a>
           </div>
           <div className="text-[10px] font-mono uppercase tracking-widest opacity-30">
             © {new Date().getFullYear()} Jacob Hull.
