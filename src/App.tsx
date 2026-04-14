@@ -171,7 +171,7 @@ export default function App() {
                     <div className="relative aspect-[16/9] md:aspect-[21/9] overflow-hidden bg-muted">
                       <img 
                         src={project.imageUrl} 
-                        alt={project.title}
+                        alt={`${project.title} project showcase`}
                         className="object-cover w-full h-full transition-all duration-1000 scale-105 group-hover:scale-100"
                         referrerPolicy="no-referrer"
                       />
@@ -201,7 +201,7 @@ export default function App() {
                             ) : (
                               <img 
                                 src={project.gameLogoUrl} 
-                                alt={project.title} 
+                                alt={`${project.title} logo`} 
                                 style={{ transform: `scale(${project.logoScale || 1})` }}
                                 className="h-full w-auto max-w-[180px] object-contain object-left origin-left"
                                 referrerPolicy="no-referrer"
@@ -273,7 +273,7 @@ export default function App() {
                             ) : (
                               <img 
                                 src={project.gameLogoUrl} 
-                                alt={project.title} 
+                                alt={`${project.title} logo`} 
                                 style={{ transform: `scale(${project.logoScale || 1})` }}
                                 className={`h-full w-auto max-w-[550px] object-contain object-left origin-left ${project.invertLogo ? 'md:brightness-0 md:invert' : ''}`}
                                 referrerPolicy="no-referrer"
@@ -329,12 +329,13 @@ export default function App() {
                     {...fadeIn}
                     className="group relative pl-12 border-l-2 border-primary/10 hover:border-primary transition-colors pb-12 last:pb-0"
                     whileInView="active"
+                    whileHover="active"
                     viewport={{ margin: "-30% 0px -30% 0px" }}
                   >
                     <motion.div 
                       className="absolute -left-[9px] top-0 h-4 w-4 rounded-full bg-background border-2 border-primary transition-colors duration-300"
                       variants={{
-                        active: { backgroundColor: 'var(--primary)' }
+                        active: { backgroundColor: '#fb5057' }
                       }}
                     />
                     <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-4">
@@ -344,7 +345,7 @@ export default function App() {
                       </div>
                       <motion.div
                         variants={{
-                          active: { backgroundColor: 'var(--primary)', color: 'var(--primary-foreground)', borderColor: 'var(--primary)' }
+                          active: { backgroundColor: '#fb5057', color: '#ece5de', borderColor: '#fb5057' }
                         }}
                         className="rounded-none font-mono text-[10px] uppercase tracking-widest px-3 py-1 border border-primary/10 bg-primary/5 text-primary/80 shrink-0 transition-colors duration-300 flex items-center justify-center"
                       >
