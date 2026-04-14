@@ -180,11 +180,15 @@ export default function App() {
                       {/* Studio Logo Overlay */}
                       {project.studioLogoUrl && project.id !== 'p6' && (
                         <div className="absolute top-8 right-8 z-20">
-                          <div className="h-12 w-12 md:h-20 md:w-20 flex items-center justify-center overflow-hidden bg-transparent border-none shadow-none">
+                          <div className="h-14 w-14 md:h-24 md:w-24 flex items-center justify-center overflow-hidden">
                             <img 
                               src={project.studioLogoUrl} 
                               alt={`${project.tags[0]} logo`}
-                              className="max-h-full max-w-full object-contain drop-shadow-2xl mix-blend-normal"
+                              className="max-h-full max-w-full object-contain"
+                              style={{ 
+                                filter: 'drop-shadow(0 10px 15px rgba(0,0,0,0.5))',
+                                clipPath: project.tags[0] === 'Riot Games' ? 'circle(45%)' : 'none'
+                              } as React.CSSProperties}
                               referrerPolicy="no-referrer"
                             />
                           </div>
@@ -232,7 +236,7 @@ export default function App() {
                       
                     <div className="md:absolute md:bottom-0 md:left-0 w-full p-6 md:p-16 flex flex-col md:flex-row md:items-end justify-between gap-8 z-10 bg-background md:bg-transparent">
                         <div className="max-w-2xl">
-                          <div className="flex flex-col gap-3 mb-6">
+                          <div className="flex flex-col gap-2 mb-8">
                             <div>
                               <Badge 
                                 style={{ backgroundColor: projectColor }}
@@ -241,6 +245,7 @@ export default function App() {
                                 <span className="leading-none">{project.year}</span>
                               </Badge>
                             </div>
+                            {/* Platforms (Mobile) */}
                             <div className="flex flex-wrap gap-2 md:hidden">
                               {project.platforms?.map((platform) => (
                                 <div 
@@ -252,17 +257,18 @@ export default function App() {
                                 </div>
                               ))}
                             </div>
-                          </div>
-                          <div className="hidden md:flex flex-wrap gap-2">
-                            {project.platforms?.map((platform) => (
-                              <div 
-                                key={platform}
-                                className="h-6 px-3 bg-black/60 backdrop-blur-md border border-white/20 flex items-center gap-2 text-[9px] font-mono uppercase tracking-widest text-white shadow-sm"
-                              >
-                                {getPlatformIcon(platform)}
-                                <span>{platform}</span>
-                              </div>
-                            ))}
+                            {/* Platforms (Desktop) */}
+                            <div className="hidden md:flex flex-wrap gap-2">
+                              {project.platforms?.map((platform) => (
+                                <div 
+                                  key={platform}
+                                  className="h-6 px-3 bg-black/60 backdrop-blur-md border border-white/20 flex items-center gap-2 text-[9px] font-mono uppercase tracking-widest text-white shadow-sm"
+                                >
+                                  {getPlatformIcon(platform)}
+                                  <span>{platform}</span>
+                                </div>
+                              ))}
+                            </div>
                           </div>
                         {/* Desktop Logo (Hidden on Mobile) */}
                         {project.gameLogoUrl ? (
@@ -355,11 +361,12 @@ export default function App() {
                     <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-4">
                       <div className="flex items-center gap-4">
                         {exp.logoUrl && (
-                          <div className="h-16 w-16 shrink-0 bg-white/5 border border-white/10 p-2 flex items-center justify-center overflow-hidden">
+                          <div className={`h-16 w-16 shrink-0 flex items-center justify-center overflow-hidden ${exp.company === 'Riot Games' ? 'rounded-full' : ''}`}>
                             <img 
                               src={exp.logoUrl} 
                               alt={`${exp.company} logo`}
-                              className={`max-h-full max-w-full object-contain ${exp.company === 'KPV LAB' ? 'mix-blend-multiply' : ''}`}
+                              className={`max-h-full max-w-full object-contain ${exp.company === 'KPV LAB' ? 'mix-blend-multiply contrast-125' : ''}`}
+                              style={exp.company === 'Riot Games' ? { clipPath: 'circle(45%)' } : {}}
                               referrerPolicy="no-referrer"
                             />
                           </div>

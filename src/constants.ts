@@ -151,7 +151,6 @@ export const PROJECTS: Project[] = [
     description: 'Defined product direction and led development of a data visualisation platform from concept through delivery. Worked closely with engineers to shape core features, user experience, and scalable product foundations.',
     tags: ['KPV LAB', 'Data Vis', 'Platform'],
     imageUrl: 'https://uwaterloo.ca/writing-and-communication-centre/sites/default/files/uploads/images/old_books.jpg',
-    studioLogoUrl: 'https://media.licdn.com/dms/image/v2/C4D0BAQFRhogvXq7MSA/company-logo_100_100/company-logo_100_100/0/1631373681451/kpv_lab_edinburgh_logo?e=1777507200&v=beta&t=XzcKyc4xAmNGcqZIx-OAGlBoOM9AIbnHR_aIq6a0-ro',
     color: '#0ea5e9'
   }
 ];
