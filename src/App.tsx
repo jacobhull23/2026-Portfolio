@@ -65,9 +65,9 @@ export default function App() {
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 border-b bg-background/80 backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-          <div className="font-display text-2xl font-bold tracking-tighter text-primary">
+          <a href="/" className="font-display text-2xl font-bold tracking-tighter text-primary hover:text-primary/80 transition-colors">
             Jacob Hull
-          </div>
+          </a>
           <div className="hidden md:flex items-center gap-8 text-xs font-bold uppercase tracking-[0.2em]">
             <a href="#projects" className="hover:text-accent transition-colors">Projects</a>
             <a href="#experience" className="hover:text-accent transition-colors">Experience</a>
@@ -103,7 +103,7 @@ export default function App() {
                   </p>
                   <div className="flex flex-wrap gap-4">
                     <a href="#projects">
-                      <Button className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-none h-14 px-10 text-sm font-bold uppercase tracking-widest">
+                      <Button className="bg-primary hover:bg-foreground hover:text-background text-primary-foreground rounded-none h-14 px-10 text-sm font-bold uppercase tracking-widest transition-all duration-300">
                         Explore Projects
                       </Button>
                     </a>
@@ -370,18 +370,27 @@ export default function App() {
               </div>
 
               <Card className="rounded-none border-none bg-background/5 backdrop-blur-xl p-8 shadow-2xl shadow-black/50">
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form 
+                  action="https://formspree.io/f/mjkgpzyw" 
+                  method="POST"
+                  onSubmit={(e) => {
+                    // We still use the state for the UI feedback, but let the form submit
+                    setFormStatus('submitting');
+                  }}
+                  className="space-y-6"
+                >
+                  <input type="hidden" name="_replyto" value="jacobhull23@gmail.com" />
                   <div className="space-y-2">
                     <Label htmlFor="name" className="text-[10px] uppercase tracking-widest font-bold text-primary">Name</Label>
-                    <Input id="name" required className="rounded-none border-none bg-background text-foreground focus:ring-2 focus:ring-primary transition-colors h-12" />
+                    <Input id="name" name="name" required className="rounded-none border-none bg-background text-foreground focus:ring-2 focus:ring-primary transition-colors h-12" />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="email" className="text-[10px] uppercase tracking-widest font-bold text-primary">Email</Label>
-                    <Input id="email" type="email" required className="rounded-none border-none bg-background text-foreground focus:ring-2 focus:ring-primary transition-colors h-12" />
+                    <Input id="email" name="email" type="email" required className="rounded-none border-none bg-background text-foreground focus:ring-2 focus:ring-primary transition-colors h-12" />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="message" className="text-[10px] uppercase tracking-widest font-bold text-accent">Message</Label>
-                    <Textarea id="message" required className="rounded-none border-none bg-background text-foreground focus:ring-2 focus:ring-primary transition-colors min-h-[150px]" />
+                    <Label htmlFor="message" className="text-[10px] uppercase tracking-widest font-bold text-primary">Message</Label>
+                    <Textarea id="message" name="message" required className="rounded-none border-none bg-background text-foreground focus:ring-2 focus:ring-primary transition-colors min-h-[150px]" />
                   </div>
                   <Button 
                     type="submit" 
