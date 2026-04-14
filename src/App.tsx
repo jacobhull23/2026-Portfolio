@@ -94,7 +94,7 @@ export default function App() {
             >
               <h1 className="font-display text-6xl md:text-9xl font-bold leading-[0.9] tracking-tighter uppercase mb-8">
                 Senior Producer & <br />
-                <span className="text-primary">Program Manager</span>
+                <span className="text-primary">Product Manager</span>
               </h1>
               <div className="flex flex-col md:flex-row md:items-end justify-between gap-12">
                 <div className="max-w-xl">
@@ -176,6 +176,44 @@ export default function App() {
                         referrerPolicy="no-referrer"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity hidden md:block" />
+                      
+                      {/* Mobile Logo Overlay */}
+                      <div className="absolute inset-0 flex items-end p-6 md:hidden bg-gradient-to-t from-black/90 via-black/20 to-transparent">
+                        {project.gameLogoUrl ? (
+                          <div className="h-12 flex items-center">
+                            {project.useColorForLogo ? (
+                              <div 
+                                style={{ 
+                                  backgroundColor: projectColor,
+                                  maskImage: `url(${project.gameLogoUrl})`,
+                                  WebkitMaskImage: `url(${project.gameLogoUrl})`,
+                                  maskSize: 'contain',
+                                  WebkitMaskSize: 'contain',
+                                  maskRepeat: 'no-repeat',
+                                  WebkitMaskRepeat: 'no-repeat',
+                                  maskPosition: 'left center',
+                                  WebkitMaskPosition: 'left center',
+                                  transform: `scale(${project.logoScale || 1})`,
+                                  transformOrigin: 'left center'
+                                }}
+                                className="h-full w-48"
+                              />
+                            ) : (
+                              <img 
+                                src={project.gameLogoUrl} 
+                                alt={project.title} 
+                                style={{ transform: `scale(${project.logoScale || 1})` }}
+                                className="h-full w-auto max-w-[180px] object-contain object-left origin-left"
+                                referrerPolicy="no-referrer"
+                              />
+                            )}
+                          </div>
+                        ) : (
+                          <h4 className="text-2xl font-display font-bold uppercase tracking-tighter text-white">
+                            {project.title}
+                          </h4>
+                        )}
+                      </div>
                     </div>
                       
                     <div className="md:absolute md:bottom-0 md:left-0 w-full p-6 md:p-16 flex flex-col md:flex-row md:items-end justify-between gap-8 z-10 bg-background md:bg-transparent">
@@ -212,8 +250,9 @@ export default function App() {
                               </div>
                             ))}
                           </div>
+                        {/* Desktop Logo (Hidden on Mobile) */}
                         {project.gameLogoUrl ? (
-                          <div className="mb-8 h-16 md:h-40 flex items-center">
+                          <div className="hidden md:flex mb-8 h-40 items-center">
                             {project.useColorForLogo ? (
                               <div 
                                 style={{ 
@@ -229,21 +268,21 @@ export default function App() {
                                   transform: `scale(${project.logoScale || 1})`,
                                   transformOrigin: 'left center'
                                 }}
-                                className="h-full w-full max-w-[280px] md:max-w-[700px]"
+                                className="h-full w-full max-w-[700px]"
                               />
                             ) : (
                               <img 
                                 src={project.gameLogoUrl} 
                                 alt={project.title} 
                                 style={{ transform: `scale(${project.logoScale || 1})` }}
-                                className={`h-full w-auto max-w-[240px] md:max-w-[550px] object-contain object-left origin-left ${project.invertLogo ? 'md:brightness-0 md:invert' : ''}`}
+                                className={`h-full w-auto max-w-[550px] object-contain object-left origin-left ${project.invertLogo ? 'md:brightness-0 md:invert' : ''}`}
                                 referrerPolicy="no-referrer"
                               />
                             )}
                           </div>
                         ) : (
                           <h4 
-                            className="text-3xl md:text-6xl font-display font-bold uppercase tracking-tighter text-foreground md:text-white mb-4 transition-colors"
+                            className="hidden md:block text-6xl font-display font-bold uppercase tracking-tighter text-white mb-4 transition-colors"
                             style={{ '--hover-color': projectColor } as React.CSSProperties}
                           >
                             <span className="group-hover:text-[var(--hover-color)] transition-colors">{project.title}</span>
@@ -395,7 +434,7 @@ export default function App() {
                   Let's build the <br />next big <span className="text-primary underline decoration-4 underline-offset-8">experience</span>.
                 </h3>
                 <p className="text-secondary-foreground/60 text-lg mb-12 max-w-md">
-                  Have a project in mind? Looking for production leadership? Drop me a message and let's talk.
+                  Have a project in mind? Looking for product leadership? Drop me a message and let's talk.
                 </p>
                 <div className="flex items-center gap-6">
                   <a href="https://www.linkedin.com/in/jacobhull" target="_blank" rel="noopener noreferrer" className="p-4 border border-secondary-foreground/20 hover:bg-primary hover:border-primary hover:text-primary-foreground transition-all">
@@ -404,7 +443,7 @@ export default function App() {
                 </div>
               </div>
 
-              <Card className="rounded-none border-none bg-background/5 backdrop-blur-xl p-8 shadow-2xl shadow-black/50">
+              <Card className="rounded-none border border-white/10 bg-white/5 backdrop-blur-xl p-8 shadow-2xl shadow-black/50">
                 <form 
                   action="https://formsubmit.co/jacobhull23@gmail.com" 
                   method="POST"
@@ -418,16 +457,16 @@ export default function App() {
                   
                   <div className="space-y-2">
                     <Label htmlFor="name" className="text-[10px] uppercase tracking-widest font-bold text-primary">Name</Label>
-                    <Input id="name" name="name" required className="rounded-none border-none bg-[#ece5de] text-[#151927] focus:ring-2 focus:ring-primary transition-colors h-12" />
+                    <Input id="name" name="name" required className="rounded-none border border-primary/20 !bg-[#ece5de] !text-[#151927] focus:ring-2 focus:ring-primary transition-colors h-12" />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="email" className="text-[10px] uppercase tracking-widest font-bold text-primary">Email</Label>
-                    <Input id="email" name="email" type="email" required className="rounded-none border-none bg-[#ece5de] text-[#151927] focus:ring-2 focus:ring-primary transition-colors h-12" />
+                    <Input id="email" name="email" type="email" required className="rounded-none border border-primary/20 !bg-[#ece5de] !text-[#151927] focus:ring-2 focus:ring-primary transition-colors h-12" />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="message" className="text-[10px] uppercase tracking-widest font-bold text-primary">Message</Label>
                     <div className="relative">
-                      <Textarea id="message" name="message" required className="rounded-none border-none bg-[#ece5de] text-[#151927] focus:ring-2 focus:ring-primary transition-colors min-h-[150px]" />
+                      <Textarea id="message" name="message" required className="rounded-none border border-primary/20 !bg-[#ece5de] !text-[#151927] focus:ring-2 focus:ring-primary transition-colors min-h-[150px]" />
                     </div>
                   </div>
                   <Button 
