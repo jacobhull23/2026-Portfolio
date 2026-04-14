@@ -4,6 +4,7 @@ export const EXPERIENCES: Experience[] = [
   {
     id: '1',
     company: 'Riot Games',
+    logoUrl: 'https://img.icons8.com/color/512/riot-games.png',
     role: 'Advanced Producer · Program / Delivery Lead',
     period: '2025–Present',
     description: 'Leading cross-functional delivery across globally distributed teams on live and in-development titles, including VALORANT and 2XKO.',
@@ -16,6 +17,7 @@ export const EXPERIENCES: Experience[] = [
   {
     id: '2',
     company: 'ZA/UM Studio',
+    logoUrl: 'https://images.igdb.com/igdb/image/upload/t_original/cl8yk.webp',
     role: 'Technical Producer → Senior Producer',
     period: '2022–2025',
     description: 'Joined at project inception to help shape product direction and establish scalable production systems across a globally distributed studio.',
@@ -28,6 +30,7 @@ export const EXPERIENCES: Experience[] = [
   {
     id: '3',
     company: 'TT Games (Warner Bros.)',
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/en/9/96/TT_Games.png',
     role: 'Producer',
     period: '2020–2022',
     description: 'Delivered large-scale AAA titles within a multi-team production environment, working across internal teams and external licensors.',
@@ -40,6 +43,7 @@ export const EXPERIENCES: Experience[] = [
   {
     id: '4',
     company: 'KPV LAB',
+    logoUrl: 'https://media.licdn.com/dms/image/v2/C4D0BAQFRhogvXq7MSA/company-logo_100_100/company-logo_100_100/0/1631373681451/kpv_lab_edinburgh_logo?e=1777507200&v=beta&t=XzcKyc4xAmNGcqZIx-OAGlBoOM9AIbnHR_aIq6a0-ro',
     role: 'Product Manager (Lead Online Producer → Product Manager)',
     period: '2017–2020',
     description: 'Early team member shaping product direction and delivery for a data visualisation platform from concept through scale.',
@@ -61,7 +65,7 @@ export const PROJECTS: Project[] = [
     description: 'Led cross-functional delivery of systems enabling player identity and expression across a global player base. Balanced player motivation, engagement, and monetisation to support long-term retention and meaningful player choice.',
     tags: ['Riot Games', 'Tactical Shooter', 'Live Ops'],
     imageUrl: 'https://assetsio.gnwcdn.com/valorant-review-exacting-infuriating-sublime-1593424502084.jpg?width=1200&height=600&fit=crop&enable=upscale&auto=webp',
-    studioLogoUrl: 'https://www.riotgames.com/darkroom/800/87521fcaeca5867538ae7f46ac152740:2f8144e17957078916e41d2410c111c3/002-rg-2021-full-lockup-offwhite.jpg',
+    studioLogoUrl: 'https://img.icons8.com/color/512/riot-games.png',
     gameLogoUrl: 'https://www.pngall.com/wp-content/uploads/13/Valorant-Logo-PNG-Cutout.png',
     color: '#fb5057',
     logoScale: 2.0,
@@ -76,7 +80,7 @@ export const PROJECTS: Project[] = [
     description: 'Led regional delivery in Sydney, driving cross-functional development from Closed Beta through launch and into live operations. Worked closely with player communities and global teams to shape safety, reporting, and social systems at scale.',
     tags: ['Riot Games', 'Fighting Game', 'Competitive'],
     imageUrl: 'https://wiki.play2xko.com/en-us/images/2XKO_Cover.jpg?302f5',
-    studioLogoUrl: 'https://www.riotgames.com/darkroom/800/87521fcaeca5867538ae7f46ac152740:2f8144e17957078916e41d2410c111c3/002-rg-2021-full-lockup-offwhite.jpg',
+    studioLogoUrl: 'https://img.icons8.com/color/512/riot-games.png',
     gameLogoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/2XKO_game_logo.svg/960px-2XKO_game_logo.svg.png',
     color: '#2596be',
     logoScale: 1.1,
@@ -121,7 +125,7 @@ export const PROJECTS: Project[] = [
     description: 'Coordinated delivery across multiple discipline teams on a large-scale licensed title, supporting milestone planning and execution. Managed dependencies and stakeholder alignment, including collaboration with external licensors.',
     tags: ['TT Games', 'Action-Adventure', 'Open World'],
     imageUrl: 'https://www.lego.com/cdn/cs/set/assets/blt0b1227cdd53c73b3/XL_hero_Gameplay_trailer_desktop.png',
-    studioLogoUrl: 'https://upload.wikimedia.org/wikipedia/en/9/96/TT_Games.png',
+    studioLogoUrl: 'https://upload.wikimedia.org/wikipedia/en/5/53/Traveller%27s_Tales_Logo.png',
     gameLogoUrl: 'https://www.jennystroom.nl/img/LEGOSWTSS.png',
     color: '#d11013',
     logoScale: 1.2,
@@ -136,7 +140,7 @@ export const PROJECTS: Project[] = [
     description: 'Supported development across multiple teams on a large-scale licensed title, driving coordination and production planning. Worked across disciplines to maintain alignment, visibility, and delivery momentum in a complex production environment.',
     tags: ['TT Games', 'Major IP', 'Prototype'],
     imageUrl: 'https://wallpapercave.com/wp/wp10794347.jpg',
-    studioLogoUrl: 'https://upload.wikimedia.org/wikipedia/en/9/96/TT_Games.png',
+    studioLogoUrl: 'https://upload.wikimedia.org/wikipedia/en/5/53/Traveller%27s_Tales_Logo.png',
     color: '#ffd500'
   },
   {
@@ -147,7 +151,7 @@ export const PROJECTS: Project[] = [
     description: 'Defined product direction and led development of a data visualisation platform from concept through delivery. Worked closely with engineers to shape core features, user experience, and scalable product foundations.',
     tags: ['KPV LAB', 'Data Vis', 'Platform'],
     imageUrl: 'https://uwaterloo.ca/writing-and-communication-centre/sites/default/files/uploads/images/old_books.jpg',
-    studioLogoUrl: 'https://kpv-lab.co.uk/static/cover2.jpg',
+    studioLogoUrl: 'https://media.licdn.com/dms/image/v2/C4D0BAQFRhogvXq7MSA/company-logo_100_100/company-logo_100_100/0/1631373681451/kpv_lab_edinburgh_logo?e=1777507200&v=beta&t=XzcKyc4xAmNGcqZIx-OAGlBoOM9AIbnHR_aIq6a0-ro',
     color: '#0ea5e9'
   }
 ];

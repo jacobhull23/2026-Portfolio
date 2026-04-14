@@ -177,6 +177,20 @@ export default function App() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity hidden md:block" />
                       
+                      {/* Studio Logo Overlay */}
+                      {project.studioLogoUrl && project.id !== 'p6' && (
+                        <div className="absolute top-8 right-8 z-20">
+                          <div className="h-12 w-12 md:h-20 md:w-20 flex items-center justify-center overflow-hidden bg-transparent border-none shadow-none">
+                            <img 
+                              src={project.studioLogoUrl} 
+                              alt={`${project.tags[0]} logo`}
+                              className="max-h-full max-w-full object-contain drop-shadow-2xl mix-blend-normal"
+                              referrerPolicy="no-referrer"
+                            />
+                          </div>
+                        </div>
+                      )}
+
                       {/* Mobile Logo Overlay */}
                       <div className="absolute inset-0 flex items-end p-6 md:hidden bg-gradient-to-t from-black/90 via-black/20 to-transparent">
                         {project.gameLogoUrl ? (
@@ -282,7 +296,7 @@ export default function App() {
                           </div>
                         ) : (
                           <h4 
-                            className="hidden md:block text-6xl font-display font-bold uppercase tracking-tighter text-white mb-4 transition-colors"
+                            className="hidden md:block text-6xl font-display font-bold uppercase tracking-tighter text-white mb-8 transition-colors"
                             style={{ '--hover-color': projectColor } as React.CSSProperties}
                           >
                             <span className="group-hover:text-[var(--hover-color)] transition-colors">{project.title}</span>
@@ -339,9 +353,21 @@ export default function App() {
                       }}
                     />
                     <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-4">
-                      <div>
-                        <h4 className="text-2xl font-display font-bold uppercase tracking-tight">{exp.company}</h4>
-                        <div className="text-primary font-bold uppercase tracking-widest text-[10px]">{exp.role}</div>
+                      <div className="flex items-center gap-4">
+                        {exp.logoUrl && (
+                          <div className="h-16 w-16 shrink-0 bg-white/5 border border-white/10 p-2 flex items-center justify-center overflow-hidden">
+                            <img 
+                              src={exp.logoUrl} 
+                              alt={`${exp.company} logo`}
+                              className={`max-h-full max-w-full object-contain ${exp.company === 'KPV LAB' ? 'mix-blend-multiply' : ''}`}
+                              referrerPolicy="no-referrer"
+                            />
+                          </div>
+                        )}
+                        <div>
+                          <h4 className="text-2xl font-display font-bold uppercase tracking-tight">{exp.company}</h4>
+                          <div className="text-primary font-bold uppercase tracking-widest text-[10px]">{exp.role}</div>
+                        </div>
                       </div>
                       <motion.div
                         variants={{
