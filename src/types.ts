@@ -30,6 +30,7 @@ export interface Writing {
   id: string;
   title: string;
   publication: string;
+  publicationLogo?: string;
   date: string;
   link: string;
   category: string;

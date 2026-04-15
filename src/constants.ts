@@ -157,31 +157,34 @@ export const PROJECTS: Project[] = [
 
 export const WRITINGS: Writing[] = [
   {
-    id: 'w1',
-    title: 'Survival of the Fittest: How Developer Abstraction Games Evolved to Get ARK on PlayStation',
-    publication: 'Push Square',
-    date: 'Dec 2016',
-    link: 'https://www.pushsquare.com/news/2016/12/feature_how_abstraction_games_evolved_to_get_ark_on_ps4',
-    category: 'Development Story',
-    image: 'https://picsum.photos/seed/ark/800/600'
-  },
-  {
     id: 'w2',
     title: 'Shadow Warrior 2: Not Silent, Very Deadly',
     publication: 'Official PlayStation Magazine',
+    publicationLogo: 'https://upload.wikimedia.org/wikipedia/fr/2/28/PlayStation_Official_Magazine_-_UK_Logo.png',
     date: 'Preview',
     link: '/articles/shadow-warrior-2-preview',
     category: 'Preview',
     image: 'https://images.gog-statics.com/dd878390cb16f2cac44bdf79cfbbfe28b26239ae0524bfaf45dba3686e124ef4.jpg'
   },
   {
+    id: 'w1',
+    title: 'Survival of the Fittest: How Developer Abstraction Games Evolved to Get ARK on PlayStation',
+    publication: 'Push Square',
+    publicationLogo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Push_Square_logo.svg/960px-Push_Square_logo.svg.png',
+    date: 'Dec 2016',
+    link: 'https://www.pushsquare.com/news/2016/12/feature_how_abstraction_games_evolved_to_get_ark_on_ps4',
+    category: 'Development Story',
+    image: 'https://images.pushsquare.com/news/2016/12/feature_how_abstraction_games_evolved_to_get_ark_on_ps4/1280x720.jpg'
+  },
+  {
     id: 'w3',
     title: 'Ni no Kuni: Wrath of the White Witch Review',
     publication: 'Push Square',
+    publicationLogo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Push_Square_logo.svg/960px-Push_Square_logo.svg.png',
     date: 'Review',
     link: 'https://www.pushsquare.com/reviews/ps4/ni_no_kuni_wrath_of_the_white_witch_remastered',
     category: 'Review',
-    image: 'https://picsum.photos/seed/ninokuni/800/600'
+    image: 'https://static.bandainamcoent.eu/high/ni-no-kuni/ni-no-kuni-1/00-page-setup/nnk1_game-thumbnail.jpg'
   }
 ];
 
