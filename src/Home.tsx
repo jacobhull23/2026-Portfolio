@@ -23,6 +23,7 @@ import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
+import Footer from './components/Footer';
 import { EXPERIENCES, PROJECTS, WRITINGS } from './constants';
 
 const fadeIn = {
@@ -423,31 +424,62 @@ export default function Home() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-              {WRITINGS.map((writing) => (
-                <motion.a 
-                  key={writing.id}
-                  href={writing.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ y: -10 }}
-                  className="p-8 border-2 border-primary/5 hover:border-primary transition-all group flex flex-col h-full bg-background shadow-sm cursor-pointer"
-                >
-                  <div className="mb-8">
-                    <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-primary font-bold">
-                      {writing.category}
-                    </span>
-                  </div>
-                  <h4 className="text-2xl font-display font-bold uppercase tracking-tight mb-6 group-hover:text-primary transition-colors flex-grow">
-                    {writing.title}
-                  </h4>
-                  <div className="flex items-center justify-between pt-6 border-t border-primary/5">
-                    <span className="text-[10px] font-mono uppercase tracking-widest opacity-40">
-                      {writing.publication}
-                    </span>
-                    <ArrowUpRight className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-all text-primary" />
-                  </div>
-                </motion.a>
-              ))}
+              {WRITINGS.map((writing) => {
+                const isInternal = writing.link.startsWith('/');
+                const MotionLink = motion(Link);
+                
+                if (isInternal) {
+                  return (
+                    <MotionLink
+                      key={writing.id}
+                      to={writing.link}
+                      whileHover={{ y: -10 }}
+                      className="p-8 border-2 border-primary/5 hover:border-primary transition-all group flex flex-col h-full bg-background shadow-sm cursor-pointer"
+                    >
+                      <div className="mb-8">
+                        <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-primary font-bold">
+                          {writing.category}
+                        </span>
+                      </div>
+                      <h4 className="text-2xl font-display font-bold uppercase tracking-tight mb-6 group-hover:text-primary transition-colors flex-grow">
+                        {writing.title}
+                      </h4>
+                      <div className="flex items-center justify-between pt-6 border-t border-primary/5">
+                        <span className="text-[10px] font-mono uppercase tracking-widest opacity-40">
+                          {writing.publication}
+                        </span>
+                        <ArrowUpRight className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-all text-primary" />
+                      </div>
+                    </MotionLink>
+                  );
+                }
+
+                return (
+                  <motion.a 
+                    key={writing.id}
+                    href={writing.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ y: -10 }}
+                    className="p-8 border-2 border-primary/5 hover:border-primary transition-all group flex flex-col h-full bg-background shadow-sm cursor-pointer"
+                  >
+                    <div className="mb-8">
+                      <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-primary font-bold">
+                        {writing.category}
+                      </span>
+                    </div>
+                    <h4 className="text-2xl font-display font-bold uppercase tracking-tight mb-6 group-hover:text-primary transition-colors flex-grow">
+                      {writing.title}
+                    </h4>
+                    <div className="flex items-center justify-between pt-6 border-t border-primary/5">
+                      <span className="text-[10px] font-mono uppercase tracking-widest opacity-40">
+                        {writing.publication}
+                      </span>
+                      <ArrowUpRight className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-all text-primary" />
+                    </div>
+                  </motion.a>
+                );
+              })}
             </div>
 
             <div className="md:hidden">
@@ -522,22 +554,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="py-16 px-6 bg-background">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
-          <a href="/" className="font-display text-3xl font-bold tracking-tighter text-primary hover:text-primary/80 transition-colors cursor-pointer">
-            Jacob Hull
-          </a>
-          <div className="flex flex-wrap justify-center gap-12 text-[10px] font-bold uppercase tracking-[0.3em] opacity-40">
-            <a href="#projects" className="hover:text-primary hover:opacity-100 transition-all cursor-pointer">Projects</a>
-            <a href="#experience" className="hover:text-primary hover:opacity-100 transition-all cursor-pointer">Studio History</a>
-            <a href="#writing" className="hover:text-primary hover:opacity-100 transition-all cursor-pointer">Publications</a>
-            <a href="#contact" className="hover:text-primary hover:opacity-100 transition-all cursor-pointer">Contact</a>
-          </div>
-          <div className="text-[10px] font-mono uppercase tracking-widest opacity-30">
-            © {new Date().getFullYear()} Jacob Hull.
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

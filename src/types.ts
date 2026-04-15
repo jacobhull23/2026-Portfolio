@@ -33,4 +33,5 @@ export interface Writing {
   date: string;
   link: string;
   category: string;
+  image?: string;
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Home from './Home';
 import Archive from './Archive';
+import ShadowWarrior2Article from './ShadowWarrior2Article';
 
 export default function App() {
   const location = useLocation();
@@ -15,6 +16,7 @@ export default function App() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/archive" element={<Archive />} />
+      <Route path="/articles/shadow-warrior-2-preview" element={<ShadowWarrior2Article />} />
     </Routes>
   );
 }
