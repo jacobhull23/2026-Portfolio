@@ -6,6 +6,10 @@ export interface Experience {
   period: string;
   description: string;
   achievements: string[];
+  link?: {
+    text: string;
+    url: string;
+  };
 }
 
 export interface Project {
@@ -24,6 +28,8 @@ export interface Project {
   logoScale?: number;
   useColorForLogo?: boolean;
   platforms?: string[];
+  videoUrl?: string;
+  websiteUrl?: string;
 }
 
 export interface Writing {

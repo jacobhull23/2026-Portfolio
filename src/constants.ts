@@ -52,6 +52,23 @@ export const EXPERIENCES: Experience[] = [
       'Established delivery processes and workflows in an R&D environment, enabling scalable product development',
       'Led recruitment and management of a small cross-functional team, supporting growth from early concept to funded product'
     ]
+  },
+  {
+    id: '5',
+    company: 'Push Square / Official PlayStation Magazine',
+    logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Push_Square_logo.svg/960px-Push_Square_logo.svg.png',
+    role: 'Freelance Games Journalist',
+    period: '2015–2020',
+    description: 'Authored 100+ articles covering news, reviews, interviews, and studio features across leading UK PlayStation publications.',
+    achievements: [
+      'Covered major industry events including Gamescom, Tokyo Game Show, and E3, delivering rapid-turnaround news and features',
+      'Developed strong audience awareness and editorial discipline through high-volume content production and community engagement',
+      'Gained deep insight into player communities and industry trends through critical analysis and direct studio engagement'
+    ],
+    link: {
+      text: 'View Full Article Portfolio',
+      url: '/archive'
+    }
   }
 ];
 
@@ -69,7 +86,9 @@ export const PROJECTS: Project[] = [
     gameLogoUrl: 'https://www.pngall.com/wp-content/uploads/13/Valorant-Logo-PNG-Cutout.png',
     color: '#fb5057',
     logoScale: 2.0,
-    platforms: ['PC', 'PS5', 'Xbox Series X/S']
+    platforms: ['PC', 'PS5', 'Xbox Series X/S'],
+    videoUrl: 'https://www.youtube.com/watch?v=AnGdzz-XWcE',
+    websiteUrl: 'https://playvalorant.com/en-us/'
   },
   {
     id: 'p2',
@@ -84,7 +103,9 @@ export const PROJECTS: Project[] = [
     gameLogoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/2XKO_game_logo.svg/960px-2XKO_game_logo.svg.png',
     color: '#2596be',
     logoScale: 1.1,
-    platforms: ['PC', 'PS5', 'Xbox Series X/S']
+    platforms: ['PC', 'PS5', 'Xbox Series X/S'],
+    videoUrl: 'https://youtu.be/xyK3lFtz2H8?si=yYN9OQ65yrqHgOXQ',
+    websiteUrl: 'https://2xko.riotgames.com/en-us/'
   },
   {
     id: 'p3',
@@ -99,7 +120,9 @@ export const PROJECTS: Project[] = [
     gameLogoUrl: 'https://www.gematsu.com/wp-content/uploads/2025/09/ZERO-PARADES-For-Dead-Spies_2025_09-24-25_012.png',
     color: '#facc15',
     logoScale: 1.1,
-    platforms: ['PC', 'PS5']
+    platforms: ['PC', 'PS5'],
+    videoUrl: 'https://www.youtube.com/watch?v=D4JVY8rR-XQ',
+    websiteUrl: 'https://store.steampowered.com/app/2863680/ZERO_PARADES_For_Dead_Spies/'
   },
   {
     id: 'p-disco',
@@ -114,7 +137,9 @@ export const PROJECTS: Project[] = [
     gameLogoUrl: 'https://shop.discoelysium.com/cdn/shop/t/4/assets/logo-image-file.png?v=49948319634983917661608219677',
     color: '#ff6b00',
     logoScale: 1.1,
-    platforms: ['PC', 'PS5', 'Xbox Series X/S', 'Nintendo Switch', 'Mobile']
+    platforms: ['PC', 'PS5', 'Xbox Series X/S', 'Nintendo Switch', 'Mobile'],
+    videoUrl: 'https://www.youtube.com/watch?v=nk_K5DM0UTk',
+    websiteUrl: 'https://store.steampowered.com/app/632470/Disco_Elysium__The_Final_Cut/'
   },
   {
     id: 'p4',
@@ -129,7 +154,9 @@ export const PROJECTS: Project[] = [
     gameLogoUrl: 'https://www.jennystroom.nl/img/LEGOSWTSS.png',
     color: '#d11013',
     logoScale: 1.2,
-    platforms: ['PC', 'PS4', 'PS5', 'Xbox One', 'Xbox Series X/S', 'Nintendo Switch']
+    platforms: ['PC', 'PS4', 'PS5', 'Xbox One', 'Xbox Series X/S', 'Nintendo Switch'],
+    videoUrl: 'https://www.youtube.com/watch?v=n49TsZAwFEs',
+    websiteUrl: 'https://store.steampowered.com/app/920210/LEGO_Star_Wars_The_Skywalker_Saga/'
   },
   {
     id: 'p5',

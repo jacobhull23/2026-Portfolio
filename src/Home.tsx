@@ -14,7 +14,9 @@ import {
   ArrowUpRight,
   Send,
   Monitor,
-  Smartphone
+  Smartphone,
+  Play,
+  Globe
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -313,9 +315,40 @@ export default function Home() {
                             {project.role} {project.focusArea && <span className="opacity-60 font-medium">· {project.focusArea}</span>}
                           </div>
                         </div>
-                        <p className="text-foreground/80 md:text-white/90 leading-relaxed text-base md:text-lg font-medium">
+                        <p className="text-foreground/80 md:text-white/90 leading-relaxed text-base md:text-lg font-medium mb-8">
                           {project.description}
                         </p>
+
+                        {(project.videoUrl || project.websiteUrl) && (
+                          <div className="flex flex-wrap gap-4">
+                            {project.videoUrl && (
+                              <motion.a
+                                href={project.videoUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary/5 md:bg-white/10 hover:bg-primary/10 md:hover:bg-white/20 backdrop-blur-md border border-primary/10 md:border-white/20 text-primary md:text-white text-xs font-bold uppercase tracking-widest transition-all shadow-xl group/btn"
+                              >
+                                <Play className="h-3.5 w-3.5 fill-current" />
+                                <span>Watch Preview</span>
+                              </motion.a>
+                            )}
+                            {project.websiteUrl && (
+                              <motion.a
+                                href={project.websiteUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#151927] md:bg-white text-white md:text-[#151927] hover:bg-[#151927]/90 md:hover:bg-white/90 text-xs font-bold uppercase tracking-widest transition-all shadow-xl group/btn"
+                              >
+                                <Globe className="h-3.5 w-3.5" />
+                                <span>Official Site</span>
+                              </motion.a>
+                            )}
+                          </div>
+                        )}
                       </div>
                     </div>
                   </motion.div>
@@ -396,6 +429,17 @@ export default function Home() {
                         </div>
                       ))}
                     </div>
+                    {exp.link && (
+                      <div className="mt-6 pt-6 border-t border-primary/5">
+                        <Link 
+                          to={exp.link.url}
+                          className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-primary hover:gap-3 transition-all group/link"
+                        >
+                          {exp.link.text}
+                          <ArrowUpRight className="h-3 w-3 transition-transform group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5" />
+                        </Link>
+                      </div>
+                    )}
                   </motion.div>
                 ))}
               </div>
