@@ -21,44 +21,10 @@ export default function Home() {
     }
   }, [activeVideo]);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = (e: React.FormEvent) => {
+    // We let the browser handle the form submission directly to FormSubmit
+    // because it's the most reliable method for static sites (GitHub Pages).
     setFormStatus('submitting');
-    
-    const formData = new FormData(e.target as HTMLFormElement);
-    const data = Object.fromEntries(formData.entries());
-
-    try {
-      const apiUrl = `${window.location.origin}/api/contact`;
-      const response = await fetch(apiUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
-
-      const responseData = await response.json();
-
-      if (response.ok && responseData.success) {
-        setFormStatus('success');
-        if (responseData.message && responseData.message.includes("Activation")) {
-          alert(responseData.message);
-        }
-        setTimeout(() => setFormStatus('idle'), 3000);
-        // Clear the form
-        (e.target as HTMLFormElement).reset();
-      } else {
-        setFormStatus('idle');
-        const errorMessage = responseData.error || 'Please try again later.';
-        console.error('Contact form error details:', responseData);
-        alert(`Failed to send message: ${errorMessage}`);
-      }
-    } catch (error) {
-      console.error('Submission error:', error);
-      setFormStatus('idle');
-      alert(`An error occurred while sending the request. Details: ${error instanceof Error ? error.message : String(error)}`);
-    }
   };
 
   return (

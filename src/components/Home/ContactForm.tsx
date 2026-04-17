@@ -35,9 +35,14 @@ export default function ContactForm({ formStatus, onSubmit }: ContactFormProps) 
 
           <Card className="rounded-none border border-white/10 bg-white/10 backdrop-blur-xl p-8 shadow-2xl shadow-black/50">
             <form 
+              action="https://formsubmit.co/your-unique-key-here" 
+              method="POST"
               onSubmit={onSubmit}
               className="space-y-6"
             >
+              {/* Optional: Configuration fields */}
+              <input type="hidden" name="_next" value={window.location.href} />
+              <input type="hidden" name="_subject" value="New Portfolio Message" />
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <Label htmlFor="name" className="text-[10px] font-bold uppercase tracking-widest text-[#ece5de]">Your Name</Label>
