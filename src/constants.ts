@@ -84,7 +84,7 @@ export const PROJECTS: Project[] = [
     imageUrl: 'https://assetsio.gnwcdn.com/valorant-review-exacting-infuriating-sublime-1593424502084.jpg?width=1200&height=600&fit=crop&enable=upscale&auto=webp',
     studioLogoUrl: 'https://img.icons8.com/color/512/riot-games.png',
     gameLogoUrl: 'https://www.pngall.com/wp-content/uploads/13/Valorant-Logo-PNG-Cutout.png',
-    color: '#fb5057',
+    color: '#0f1923',
     logoScale: 2.0,
     platforms: ['PC', 'PS5', 'Xbox Series X/S'],
     videoUrl: 'https://www.youtube.com/watch?v=AnGdzz-XWcE',

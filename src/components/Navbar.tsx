@@ -1,0 +1,25 @@
+import React from 'react';
+import { Button } from '@/components/ui/button';
+
+export default function Navbar() {
+  return (
+    <nav className="fixed top-0 w-full z-50 border-b bg-background/80 backdrop-blur-md">
+      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+        <a href="/" className="font-display text-2xl font-bold tracking-tighter text-primary hover:text-primary/80 transition-colors cursor-pointer">
+          Jacob Hull
+        </a>
+        <div className="hidden md:flex items-center gap-8 text-xs font-bold uppercase tracking-[0.2em]">
+          <a href="#projects" className="hover:text-primary transition-colors cursor-pointer">Projects</a>
+          <a href="#experience" className="hover:text-primary transition-colors cursor-pointer">Experience</a>
+          <a href="#writing" className="hover:text-primary transition-colors cursor-pointer">Writing</a>
+          <a href="#contact" className="hover:text-primary transition-colors cursor-pointer">Contact</a>
+        </div>
+        <a href="https://www.linkedin.com/in/jacobhull" target="_blank" rel="noopener noreferrer" className="cursor-pointer">
+          <Button variant="default" size="sm" className="rounded-none bg-primary hover:bg-foreground hover:text-background px-6 font-bold uppercase tracking-widest text-[10px] transition-all duration-300 cursor-pointer">
+            Resume
+          </Button>
+        </a>
+      </div>
+    </nav>
+  );
+}
