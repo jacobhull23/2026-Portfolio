@@ -35,8 +35,6 @@ export default function ContactForm({ formStatus, onSubmit }: ContactFormProps) 
 
           <Card className="rounded-none border border-white/10 bg-white/10 backdrop-blur-xl p-8 shadow-2xl shadow-black/50">
             <form 
-              action="https://formsubmit.co/jacobhull23@gmail.com" 
-              method="POST"
               onSubmit={onSubmit}
               className="space-y-6"
             >

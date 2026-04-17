@@ -21,13 +21,38 @@ export default function Home() {
     }
   }, [activeVideo]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setFormStatus('submitting');
-    setTimeout(() => {
-      setFormStatus('success');
-      setTimeout(() => setFormStatus('idle'), 3000);
-    }, 1500);
+    
+    const formData = new FormData(e.target as HTMLFormElement);
+    const data = Object.fromEntries(formData.entries());
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        setFormStatus('success');
+        setTimeout(() => setFormStatus('idle'), 3000);
+        // Clear the form
+        (e.target as HTMLFormElement).reset();
+      } else {
+        setFormStatus('idle');
+        const errorData = await response.json();
+        console.error('Contact form error:', errorData.error);
+        alert('Failed to send message. Please try again later.');
+      }
+    } catch (error) {
+      console.error('Submission error:', error);
+      setFormStatus('idle');
+      alert('An error occurred. Please try again later.');
+    }
   };
 
   return (
