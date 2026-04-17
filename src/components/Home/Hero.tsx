@@ -10,18 +10,23 @@ export default function Hero() {
         <div className="absolute inset-0 bg-accent/20 md:bg-accent/10 skew-x-12 translate-x-1/4 z-10" />
         
         {/* Profile Image container - fix stretching */}
-        <div className="absolute inset-0 flex items-center justify-end md:justify-center translate-x-1/4 translate-y-12">
-          <div className="relative w-full h-full max-w-[500px] max-h-[500px]">
+        <div className="absolute inset-0 flex items-center justify-center md:items-center md:justify-center translate-x-0 md:translate-x-1/4">
+          <motion.div 
+            initial={{ opacity: 0, scale: 1.1 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
+            className="relative w-full h-full max-w-[400px] max-h-[400px] md:max-w-[550px] md:max-h-[550px]"
+          >
             <img 
               src="https://media.licdn.com/dms/image/v2/D5603AQGQXZoRe6NfgQ/profile-displayphoto-scale_400_400/B56Z2Y6JIhKYAg-/0/1776386872512?e=1778112000&v=beta&t=WtDjtF4-FImprwLlUrZPrPjxWhouwbLCe0JFumdtbOs" 
               alt="Jacob Hull" 
-              className="w-full h-full object-contain grayscale opacity-40 mix-blend-multiply transition-opacity duration-1000"
+              className="w-full h-full object-contain grayscale brightness-110 opacity-60 md:opacity-50 transition-all duration-1000 hover:grayscale-0"
               referrerPolicy="no-referrer"
             />
             {/* Vignette/Fade overlay specific to the image area */}
             <div className="absolute inset-0 bg-gradient-to-r from-background via-transparent to-transparent z-20" />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background z-20" />
-          </div>
+          </motion.div>
         </div>
         
         {/* Full section gradient fade */}
