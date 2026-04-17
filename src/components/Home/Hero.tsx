@@ -3,58 +3,85 @@ import { motion } from 'motion/react';
 
 export default function Hero() {
   return (
-    <section className="pt-40 pb-24 px-6 relative overflow-hidden bg-background text-foreground border-b-4 border-primary min-h-[70vh] flex items-center">
-      {/* Background Decorative Section & Profile Image */}
-      <div className="absolute top-0 right-0 w-full md:w-1/2 h-full z-0 pointer-events-none">
-        {/* Blue skew background */}
-        <div className="absolute inset-0 bg-accent/20 md:bg-accent/10 skew-x-12 translate-x-1/4 z-10" />
-        
-        {/* Profile Image container - fix stretching */}
-        <div className="absolute inset-0 flex items-center justify-center md:items-center md:justify-center translate-x-0 md:translate-x-1/4">
-          <motion.div 
-            initial={{ opacity: 0, scale: 1.1 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.2, ease: "easeOut" }}
-            className="relative w-full h-full max-w-[400px] max-h-[400px] md:max-w-[550px] md:max-h-[550px]"
-          >
-            <img 
-              src="https://media.licdn.com/dms/image/v2/D5603AQGQXZoRe6NfgQ/profile-displayphoto-scale_400_400/B56Z2Y6JIhKYAg-/0/1776386872512?e=1778112000&v=beta&t=WtDjtF4-FImprwLlUrZPrPjxWhouwbLCe0JFumdtbOs" 
-              alt="Jacob Hull" 
-              className="w-full h-full object-contain grayscale brightness-110 opacity-60 md:opacity-50 transition-all duration-1000 hover:grayscale-0"
-              referrerPolicy="no-referrer"
-            />
-            {/* Vignette/Fade overlay specific to the image area */}
-            <div className="absolute inset-0 bg-gradient-to-r from-background via-transparent to-transparent z-20" />
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background z-20" />
-          </motion.div>
-        </div>
-        
-        {/* Full section gradient fade */}
-        <div className="absolute inset-0 bg-gradient-to-l from-transparent via-background/20 to-background z-30" />
+    <section className="pt-32 pb-24 px-6 relative overflow-hidden bg-background text-foreground border-b-4 border-primary min-h-[85vh] flex items-center">
+      {/* Integrated Architectural Background */}
+      <div className="absolute top-0 right-0 w-full lg:w-1/2 h-full z-0 overflow-hidden pointer-events-none">
+        {/* Large skewed accent plinth */}
+        <div className="absolute inset-y-0 right-0 w-full bg-accent/10 skew-x-12 translate-x-1/3" />
+        <div className="absolute inset-y-0 right-0 w-px bg-primary/20 skew-x-12 translate-x-1/3 mr-px" />
       </div>
 
-      <div className="max-w-7xl mx-auto relative z-10">
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <h1 className="font-display text-6xl md:text-9xl font-bold leading-[0.9] tracking-tighter uppercase mb-8">
-            Senior Producer & <br />
-            <span className="text-primary">Product Manager</span>
-          </h1>
-          <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-12">
-            <p className="text-xl md:text-2xl font-medium max-w-xl leading-snug">
-              Leading cross-functional teams to build and ship world-class digital products, social systems, and impactful user experiences.
-            </p>
-            <div className="flex items-center gap-4">
-              <div className="h-px w-12 bg-primary/30" />
-              <div className="text-[10px] font-bold uppercase tracking-[0.3em] text-primary/60 vertical-text md:horizontal-text">
-                Currently @ Riot Games
+      <div className="max-w-7xl mx-auto relative z-10 w-full">
+        <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-12 lg:gap-24">
+          {/* Text Side */}
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="flex-1 lg:max-w-[60%]"
+          >
+            <h1 className="font-display text-6xl md:text-8xl xl:text-9xl font-bold leading-[0.9] tracking-tighter uppercase mb-10 translate-x-[-0.05em]">
+              Senior Producer & <br />
+              <span className="text-primary">Product Manager</span>
+            </h1>
+            <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-12">
+              <p className="text-xl md:text-2xl font-medium max-w-xl leading-snug">
+                Leading cross-functional teams to build and ship world-class digital products, social systems, and impactful user experiences.
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Editorial Image Card - Resting on the architectural plinth */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, rotate: 2, y: 20 }}
+            animate={{ opacity: 1, scale: 1, rotate: -2, y: 0 }}
+            transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+            className="relative lg:w-1/3 w-full max-w-sm shrink-0 lg:mr-12"
+          >
+            {/* The "Card" Frame */}
+            <div className="relative aspect-[3/4] bg-[#f8f6f3] p-4 md:p-6 shadow-[30px_30px_80px_rgba(0,0,0,0.1)] border border-black/10 transition-transform duration-500 hover:rotate-0 group">
+              <div className="relative w-full h-full overflow-hidden bg-white grayscale group-hover:grayscale-0 transition-all duration-700 ease-out border border-black/5">
+                <img 
+                  src="https://lh3.googleusercontent.com/d/1NqfX8am0cHX1mfhN0Tbc4wbdiXMXumrH" 
+                  alt="Jacob Hull" 
+                  className="w-full h-full object-cover origin-bottom scale-105 group-hover:scale-100 transition-transform duration-1000"
+                  referrerPolicy="no-referrer"
+                />
+                {/* Subtle texture overlay for editorial feel */}
+                <div className="absolute inset-0 opacity-10 pointer-events-none mix-blend-overlay bg-[url('https://www.transparenttextures.com/patterns/paper-fibers.png')]" />
+              </div>
+              
+              {/* Card Label / Label "Sticker" */}
+              <div className="absolute -bottom-6 -left-6 bg-primary text-white py-4 px-8 shadow-2xl rotate-2 group-hover:rotate-0 transition-transform duration-500">
+                <span className="text-[10px] md:text-[11px] font-bold uppercase tracking-[0.4em] block mb-1">Jacob Hull</span>
+                <span className="text-[8px] md:text-[9px] font-medium uppercase tracking-[0.2em] opacity-80 block">Riot Games · Senior Producer</span>
+              </div>
+
+              {/* Riot Brand Seal - Separate "Stamp" */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0, rotate: -20 }}
+                animate={{ opacity: 1, scale: 1, rotate: 12 }}
+                transition={{ delay: 0.8, type: "spring", stiffness: 200 }}
+                className="absolute -top-3 -right-3 w-10 h-10 bg-white rounded-full shadow-[5px_5px_15px_rgba(0,0,0,0.1)] flex items-center justify-center p-0.5 border border-black/5 z-20 hover:scale-110 transition-transform duration-300 pointer-events-auto"
+              >
+                <img 
+                  src="https://img.icons8.com/color/512/riot-games.png" 
+                  alt="Riot Games" 
+                  className="w-full h-full object-contain"
+                  referrerPolicy="no-referrer"
+                />
+              </motion.div>
+
+              {/* Decorative Numbering */}
+              <div className="absolute top-4 right-4 text-[10px] font-mono font-bold opacity-10">
+                01 // PRTL_2026
               </div>
             </div>
-          </div>
-        </motion.div>
+            
+            {/* Geometric shadow elements */}
+            <div className="absolute -bottom-4 -right-4 w-full h-full bg-primary/5 -skew-x-6 -z-10 transition-transform duration-1000 group-hover:translate-x-2 group-hover:translate-y-2" />
+          </motion.div>
+        </div>
       </div>
     </section>
   );
