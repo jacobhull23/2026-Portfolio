@@ -52,6 +52,7 @@ const FeaturedArchiveCard: React.FC<FeaturedArchiveCardProps> = ({ article, inde
         to={article.link}
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
+        whileHover={{ scale: 1.02 }}
         transition={{ duration: 0.5, delay: index * 0.1 }}
         className={className}
       >
@@ -67,6 +68,7 @@ const FeaturedArchiveCard: React.FC<FeaturedArchiveCardProps> = ({ article, inde
       rel="noopener noreferrer"
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
+      whileHover={{ scale: 1.02 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className={className}
     >

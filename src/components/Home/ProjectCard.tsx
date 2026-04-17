@@ -145,7 +145,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onWatchPreview }) =>
                   onClick={() => onWatchPreview(project.videoUrl!)}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary/5 md:bg-white/10 hover:bg-primary/10 md:hover:bg-white/20 backdrop-blur-md border border-primary/10 md:border-white/20 text-primary md:text-white text-xs font-bold uppercase tracking-widest transition-all shadow-xl group/btn cursor-pointer"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 text-white text-xs font-bold uppercase tracking-widest transition-all shadow-xl group/btn cursor-pointer"
                 >
                   <Play className="h-3.5 w-3.5 fill-current" />
                   <span>Watch Preview</span>

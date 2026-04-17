@@ -62,7 +62,7 @@ const WritingCard: React.FC<WritingCardProps> = ({ writing }) => {
     return (
       <MotionLink
         to={writing.link}
-        whileHover={{ y: -10 }}
+        whileHover={{ y: -10, scale: 1.02 }}
         className={commonClasses}
       >
         {cardContent}
@@ -75,7 +75,7 @@ const WritingCard: React.FC<WritingCardProps> = ({ writing }) => {
       href={writing.link}
       target="_blank"
       rel="noopener noreferrer"
-      whileHover={{ y: -10 }}
+      whileHover={{ y: -10, scale: 1.02 }}
       className={commonClasses}
     >
       {cardContent}

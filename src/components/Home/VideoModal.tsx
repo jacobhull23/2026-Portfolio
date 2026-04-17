@@ -37,15 +37,17 @@ export default function VideoModal({ activeVideo, onClose }: VideoModalProps) {
             exit={{ scale: 0.9, opacity: 0, y: 20 }}
             className="relative w-full max-w-6xl aspect-video bg-black shadow-2xl border-2 border-white/10"
           >
-            <button
+            <motion.button
               onClick={onClose}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
               className="absolute -top-12 right-0 md:-right-12 text-white/60 hover:text-white transition-colors cursor-pointer group"
             >
               <div className="flex items-center gap-2">
                 <span className="text-[10px] font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">Close</span>
                 <X className="h-8 w-8" />
               </div>
-            </button>
+            </motion.button>
             <iframe
               src={getYouTubeEmbedUrl(activeVideo)}
               title="Project Video"

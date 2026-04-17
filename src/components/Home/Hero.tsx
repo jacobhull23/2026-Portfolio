@@ -40,7 +40,7 @@ export default function Hero() {
           >
             {/* The "Card" Frame */}
             <div className="relative aspect-[3/4] bg-[#f8f6f3] p-4 md:p-6 shadow-[30px_30px_80px_rgba(0,0,0,0.1)] border border-black/10 transition-transform duration-500 hover:rotate-0 group">
-              <div className="relative w-full h-full overflow-hidden bg-white grayscale group-hover:grayscale-0 transition-all duration-700 ease-out border border-black/5">
+              <div className="relative w-full h-full overflow-hidden bg-white hover:grayscale transition-all duration-700 ease-out border border-black/5 group">
                 <img 
                   src="https://lh3.googleusercontent.com/d/1NqfX8am0cHX1mfhN0Tbc4wbdiXMXumrH" 
                   alt="Jacob Hull" 
@@ -62,7 +62,7 @@ export default function Hero() {
                 initial={{ opacity: 0, scale: 0, rotate: -20 }}
                 animate={{ opacity: 1, scale: 1, rotate: 12 }}
                 transition={{ delay: 0.8, type: "spring", stiffness: 200 }}
-                className="absolute -top-3 -right-3 w-10 h-10 bg-white rounded-full shadow-[5px_5px_15px_rgba(0,0,0,0.1)] flex items-center justify-center p-0.5 border border-black/5 z-20 hover:scale-110 transition-transform duration-300 pointer-events-auto"
+                className="absolute -top-6 -right-6 w-14 h-14 bg-white rounded-full shadow-[10px_10px_30px_rgba(0,0,0,0.1)] flex items-center justify-center p-0.5 border border-black/5 z-20 hover:scale-110 transition-transform duration-300 pointer-events-auto"
               >
                 <img 
                   src="https://img.icons8.com/color/512/riot-games.png" 

@@ -27,9 +27,16 @@ export default function ContactForm({ formStatus, onSubmit }: ContactFormProps) 
               Have a project in mind? Looking for product leadership? Drop me a message and let's talk.
             </p>
             <div className="flex items-center gap-6">
-              <a href="https://www.linkedin.com/in/jacobhull" target="_blank" rel="noopener noreferrer" className="p-4 border border-secondary-foreground/20 hover:bg-primary hover:border-primary hover:text-primary-foreground transition-all cursor-pointer">
+              <motion.a 
+                href="https://www.linkedin.com/in/jacobhull" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                className="p-4 border border-secondary-foreground/20 hover:bg-primary hover:border-primary hover:text-primary-foreground transition-all cursor-pointer"
+              >
                 <Linkedin className="h-6 w-6" />
-              </a>
+              </motion.a>
             </div>
           </div>
 

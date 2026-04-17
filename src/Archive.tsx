@@ -40,10 +40,15 @@ export default function Archive() {
       {/* Header */}
       <header className="fixed top-0 w-full z-50 border-b border-[#151927]/10 bg-[#ece5de]/80 backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 group text-xs font-bold uppercase tracking-widest hover:text-primary transition-colors cursor-pointer">
-            <ArrowLeft className="h-4 w-4 group-hover:-translate-x-1 transition-transform" />
-            Back to Home
-          </Link>
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <Link to="/" className="flex items-center gap-2 group text-xs font-bold uppercase tracking-widest hover:text-primary transition-colors cursor-pointer">
+              <ArrowLeft className="h-4 w-4 group-hover:-translate-x-1 transition-transform" />
+              Back to Home
+            </Link>
+          </motion.div>
           <div className="font-display text-xl font-bold tracking-tighter">
             Article Archive
           </div>
@@ -67,9 +72,11 @@ export default function Archive() {
           <div className="flex flex-col md:flex-row gap-6 mb-12 items-start md:items-center justify-between border-y border-[#151927]/10 py-8">
             <div className="flex flex-wrap gap-2">
               {categories.map((cat) => (
-                <button
+                <motion.button
                   key={cat}
                   onClick={() => setActiveCategory(cat)}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                   className={`px-4 py-2 text-[10px] font-bold uppercase tracking-widest transition-all duration-300 border cursor-pointer ${
                     activeCategory === cat 
                       ? 'bg-[#151927] text-white border-[#151927]' 
@@ -77,7 +84,7 @@ export default function Archive() {
                   }`}
                 >
                   {cat}
-                </button>
+                </motion.button>
               ))}
             </div>
             <div className="relative w-full md:w-72">
