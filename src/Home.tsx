@@ -39,6 +39,10 @@ export default function Home() {
 
       if (response.ok) {
         setFormStatus('success');
+        const data = await response.json();
+        if (data.message && data.message.includes("Activation")) {
+          alert(data.message);
+        }
         setTimeout(() => setFormStatus('idle'), 3000);
         // Clear the form
         (e.target as HTMLFormElement).reset();

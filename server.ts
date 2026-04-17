@@ -42,7 +42,17 @@ async function startServer() {
       if (response.ok) {
         res.status(200).json({ success: true, message: result.message });
       } else {
-        res.status(response.status).json({ success: false, error: result.message || "Failed to send message via FormSubmit" });
+        // FormSubmit often returns 200/403 with a message about email activation on first use
+        const errorMessage = result.message || "An error occurred with the email service.";
+        
+        if (errorMessage.toLowerCase().includes("confirm your email") || errorMessage.toLowerCase().includes("activation")) {
+           res.status(200).json({ 
+             success: true, 
+             message: "Activation required! Please check your email inbox and spam folder to confirm this service. Once confirmed, your messages will send normally." 
+           });
+        } else {
+          res.status(response.status).json({ success: false, error: errorMessage });
+        }
       }
     } catch (error) {
       console.error("Error sending contact form:", error);
