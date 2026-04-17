@@ -27,6 +27,19 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onWatchPreview }) =>
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
     >
+      {/* Brand Stamp */}
+      {project.studioLogoUrl && (
+        <div className="absolute top-6 md:top-12 right-6 md:right-12 z-20 flex flex-col items-center gap-1 md:gap-2">
+          <span className="text-[7px] md:text-[8px] font-bold uppercase tracking-[0.3em] text-white/40 md:group-hover:text-white/60 transition-colors">Produced At</span>
+          <img 
+            src={project.studioLogoUrl} 
+            alt="Studio Logo" 
+            className="h-6 md:h-12 w-auto object-contain opacity-40 md:group-hover:opacity-100 transition-all duration-500 grayscale brightness-200"
+            referrerPolicy="no-referrer"
+          />
+        </div>
+      )}
+
       {/* Background Image */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <div 
@@ -35,16 +48,16 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onWatchPreview }) =>
         />
         {/* Color Overlay */}
         <div 
-          className="absolute inset-0 opacity-40 mix-blend-multiply md:opacity-80 transition-opacity duration-700 md:group-hover:opacity-40"
+          className="absolute inset-0 opacity-60 md:opacity-80 transition-opacity duration-700 md:group-hover:opacity-40"
           style={{ backgroundColor: projectColor }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#151927] via-transparent to-transparent opacity-90 md:opacity-60" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#151927] via-[#151927]/60 to-transparent opacity-90 md:opacity-60" />
       </div>
 
       {/* Content Container */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 h-full flex flex-col justify-center py-24 md:py-32">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 h-full flex flex-col justify-center py-16 md:py-32">
         <div className="max-w-3xl relative">
-          {/* Tags & Studio Logo ALIGNED */}
+          {/* Tags */}
           <div className="flex items-center justify-between mb-8 md:mb-12">
             <div className="flex flex-col gap-3">
               <div className="flex flex-wrap gap-3">
@@ -69,35 +82,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onWatchPreview }) =>
                 ))}
               </div>
             </div>
-
-            {project.studioLogoUrl && (
-              <div className="hidden md:block">
-                <img 
-                  src={project.studioLogoUrl} 
-                  alt="Studio Logo" 
-                  className="h-24 w-auto object-contain transition-all duration-300 hover:scale-105 filter drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]"
-                  referrerPolicy="no-referrer"
-                />
-              </div>
-            )}
           </div>
 
-          {/* Mobile Studio Logo (Simplified) */}
-          {project.studioLogoUrl && (
-            <div className="md:hidden absolute top-0 right-0 -mt-12">
-              <img 
-                src={project.studioLogoUrl} 
-                alt="Studio Logo" 
-                className="h-12 w-auto object-contain opacity-80"
-                referrerPolicy="no-referrer"
-              />
-            </div>
-          )}
-
           {/* Logo / Title */}
-          <div className="mb-8 min-h-[140px] flex flex-col justify-center">
+          <div className="mb-8 min-h-[100px] md:min-h-[140px] flex flex-col justify-center">
             {project.gameLogoUrl ? (
-              <div className="h-40 flex items-center">
+              <div className="h-24 md:h-40 flex items-center">
                 {project.useColorForLogo ? (
                   <div 
                     style={{ 
@@ -113,7 +103,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onWatchPreview }) =>
                       transform: `scale(${project.logoScale || 1})`,
                       transformOrigin: 'left center'
                     } as React.CSSProperties}
-                    className="h-full w-full max-w-[700px]"
+                    className="h-full w-full max-w-full md:max-w-[700px]"
                   />
                 ) : (
                   <img 
@@ -121,7 +111,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onWatchPreview }) =>
                     alt={`${project.title} logo`} 
                     style={{ transform: `scale(${project.logoScale || 1})` }}
                     className={cn(
-                      "h-full w-auto max-w-[550px] object-contain object-left origin-left drop-shadow-2xl",
+                      "h-full w-auto max-w-full md:max-w-[550px] object-contain object-left origin-left drop-shadow-2xl",
                       project.invertLogo && "md:brightness-0 md:invert"
                     )}
                     referrerPolicy="no-referrer"
@@ -130,20 +120,20 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onWatchPreview }) =>
               </div>
             ) : (
               <h2 
-                className="text-6xl md:text-8xl font-display font-bold uppercase tracking-tighter text-white transition-all duration-300 drop-shadow-2xl md:group-hover:opacity-80"
+                className="text-4xl md:text-8xl font-display font-bold uppercase tracking-tighter text-white transition-all duration-300 drop-shadow-2xl md:group-hover:opacity-80 break-words"
               >
                 {project.title}
               </h2>
             )}
           </div>
 
-          <div className="flex flex-col mb-6">
-            <div className="text-foreground md:text-white font-bold uppercase tracking-widest text-sm md:text-base">
+          <div className="flex flex-col mb-4 md:mb-6">
+            <div className="text-white font-bold uppercase tracking-widest text-xs md:text-base">
               {project.role} {project.focusArea && <span className="opacity-60 font-medium">· {project.focusArea}</span>}
             </div>
           </div>
 
-          <p className="text-foreground/80 md:text-white/90 leading-relaxed text-base md:text-lg font-medium mb-8">
+          <p className="text-white/80 md:text-white/90 leading-relaxed text-sm md:text-lg font-medium mb-8 max-w-2xl">
             {project.description}
           </p>
 

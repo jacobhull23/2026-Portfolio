@@ -40,7 +40,7 @@ export default function Hero() {
           </h1>
           <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-12">
             <p className="text-xl md:text-2xl font-medium max-w-xl leading-snug">
-              Leading cross-functional teams to build and ship world-class games, social systems, and expressive player experiences.
+              Leading cross-functional teams to build and ship world-class digital products, social systems, and impactful user experiences.
             </p>
             <div className="flex items-center gap-4">
               <div className="h-px w-12 bg-primary/30" />
