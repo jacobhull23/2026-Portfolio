@@ -29,7 +29,8 @@ export default function Home() {
     const data = Object.fromEntries(formData.entries());
 
     try {
-      const response = await fetch('/api/contact', {
+      const apiUrl = `${window.location.origin}/api/contact`;
+      const response = await fetch(apiUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -37,20 +38,21 @@ export default function Home() {
         body: JSON.stringify(data),
       });
 
-      if (response.ok) {
+      const responseData = await response.json();
+
+      if (response.ok && responseData.success) {
         setFormStatus('success');
-        const data = await response.json();
-        if (data.message && data.message.includes("Activation")) {
-          alert(data.message);
+        if (responseData.message && responseData.message.includes("Activation")) {
+          alert(responseData.message);
         }
         setTimeout(() => setFormStatus('idle'), 3000);
         // Clear the form
         (e.target as HTMLFormElement).reset();
       } else {
         setFormStatus('idle');
-        const errorData = await response.json();
-        console.error('Contact form error:', errorData.error);
-        alert(`Failed to send message: ${errorData.error || 'Please try again later.'}`);
+        const errorMessage = responseData.error || 'Please try again later.';
+        console.error('Contact form error details:', responseData);
+        alert(`Failed to send message: ${errorMessage}`);
       }
     } catch (error) {
       console.error('Submission error:', error);

@@ -15,12 +15,16 @@ async function startServer() {
   // API contact route
   app.post("/api/contact", async (req, res) => {
     const { name, email, message } = req.body;
-    const contactEmail = process.env.CONTACT_EMAIL || "me@jacobhull.me";
+    // Clean the email string from any accidental spaces or quotes from the environment settings
+    const contactEmail = (process.env.CONTACT_EMAIL || "me@jacobhull.me").replace(/['"\s]+/g, '');
 
-    console.log(`Attempting to send message to ${contactEmail} via FormSubmit...`);
+    console.log(`[Contact API] Sending message to: "${contactEmail}"`);
 
     try {
-      const response = await fetch(`https://formsubmit.co/ajax/${contactEmail}`, {
+      // Create a proper URL object to ensure it's valid
+      const targetUrl = new URL(`https://formsubmit.co/ajax/${contactEmail}`);
+      
+      const response = await fetch(targetUrl.toString(), {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -35,27 +39,34 @@ async function startServer() {
         })
       });
 
-      console.log(`FormSubmit response status: ${response.status}`);
-      const result = await response.json();
-      console.log(`FormSubmit result:`, result);
+      console.log(`[Contact API] FormSubmit status: ${response.status}`);
+      
+      // Get the response as text first to avoid JSON parsing errors if it's HTML
+      const responseText = await response.text();
+      let result;
+      try {
+        result = JSON.parse(responseText);
+      } catch (e) {
+        console.error("[Contact API] Failed to parse FormSubmit response as JSON:", responseText);
+        return res.status(500).json({ success: false, error: "The email service returned an invalid response. Please try again later." });
+      }
+
+      console.log(`[Contact API] Result:`, result);
       
       if (response.ok) {
         return res.status(200).json({ success: true, message: result.message });
       } else {
-        // FormSubmit response handling
         const errorMessage = result.message || "Email service returned an error.";
         return res.status(200).json({ 
           success: false, 
-          error: errorMessage,
-          debug: { status: response.status, result }
+          error: errorMessage
         });
       }
     } catch (error) {
-      console.error("Critical server error during contact form submission:", error);
+      console.error("[Contact API] Critical error:", error);
       return res.status(500).json({ 
         success: false, 
-        error: error instanceof Error ? error.message : "Internal Server Error",
-        stack: process.env.NODE_ENV !== 'production' ? (error instanceof Error ? error.stack : undefined) : undefined
+        error: error instanceof Error ? error.message : "Internal Server Error"
       });
     }
   });
