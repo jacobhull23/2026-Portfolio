@@ -46,7 +46,7 @@ export default function Home() {
         setFormStatus('idle');
         const errorData = await response.json();
         console.error('Contact form error:', errorData.error);
-        alert('Failed to send message. Please try again later.');
+        alert(`Failed to send message: ${errorData.error || 'Please try again later.'}`);
       }
     } catch (error) {
       console.error('Submission error:', error);

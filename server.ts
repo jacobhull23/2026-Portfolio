@@ -17,6 +17,8 @@ async function startServer() {
     const { name, email, message } = req.body;
     const contactEmail = process.env.CONTACT_EMAIL || "me@jacobhull.me";
 
+    console.log(`Attempting to send message to ${contactEmail} via FormSubmit...`);
+
     try {
       const response = await fetch(`https://formsubmit.co/ajax/${contactEmail}`, {
         method: "POST",
@@ -33,16 +35,18 @@ async function startServer() {
         })
       });
 
+      console.log(`FormSubmit response status: ${response.status}`);
       const result = await response.json();
+      console.log(`FormSubmit result:`, result);
       
       if (response.ok) {
         res.status(200).json({ success: true, message: result.message });
       } else {
-        res.status(response.status).json({ success: false, error: result.message });
+        res.status(response.status).json({ success: false, error: result.message || "Failed to send message via FormSubmit" });
       }
     } catch (error) {
       console.error("Error sending contact form:", error);
-      res.status(500).json({ success: false, error: "Internal Server Error" });
+      res.status(500).json({ success: false, error: error instanceof Error ? error.message : "Internal Server Error" });
     }
   });
 
