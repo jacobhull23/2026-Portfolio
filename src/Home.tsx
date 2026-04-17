@@ -55,7 +55,7 @@ export default function Home() {
     } catch (error) {
       console.error('Submission error:', error);
       setFormStatus('idle');
-      alert('An error occurred. Please try again later.');
+      alert(`An error occurred while sending the request. Details: ${error instanceof Error ? error.message : String(error)}`);
     }
   };
 

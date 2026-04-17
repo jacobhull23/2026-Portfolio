@@ -40,23 +40,23 @@ async function startServer() {
       console.log(`FormSubmit result:`, result);
       
       if (response.ok) {
-        res.status(200).json({ success: true, message: result.message });
+        return res.status(200).json({ success: true, message: result.message });
       } else {
-        // FormSubmit often returns 200/403 with a message about email activation on first use
-        const errorMessage = result.message || "An error occurred with the email service.";
-        
-        if (errorMessage.toLowerCase().includes("confirm your email") || errorMessage.toLowerCase().includes("activation")) {
-           res.status(200).json({ 
-             success: true, 
-             message: "Activation required! Please check your email inbox and spam folder to confirm this service. Once confirmed, your messages will send normally." 
-           });
-        } else {
-          res.status(response.status).json({ success: false, error: errorMessage });
-        }
+        // FormSubmit response handling
+        const errorMessage = result.message || "Email service returned an error.";
+        return res.status(200).json({ 
+          success: false, 
+          error: errorMessage,
+          debug: { status: response.status, result }
+        });
       }
     } catch (error) {
-      console.error("Error sending contact form:", error);
-      res.status(500).json({ success: false, error: error instanceof Error ? error.message : "Internal Server Error" });
+      console.error("Critical server error during contact form submission:", error);
+      return res.status(500).json({ 
+        success: false, 
+        error: error instanceof Error ? error.message : "Internal Server Error",
+        stack: process.env.NODE_ENV !== 'production' ? (error instanceof Error ? error.stack : undefined) : undefined
+      });
     }
   });
 
