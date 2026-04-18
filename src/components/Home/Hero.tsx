@@ -40,7 +40,7 @@ export default function Hero() {
           >
             {/* The "Card" Frame */}
             <div className="relative aspect-[3/4] bg-[#f8f6f3] p-4 md:p-6 shadow-[30px_30px_80px_rgba(0,0,0,0.1)] border border-black/10 transition-transform duration-500 hover:rotate-0 group">
-              <div className="relative w-full h-full overflow-hidden bg-white hover:grayscale transition-all duration-700 ease-out border border-black/5 group">
+              <div className="relative w-full h-full overflow-hidden bg-white transition-all duration-700 ease-out border border-black/5 group">
                 <img 
                   src="https://lh3.googleusercontent.com/d/1NqfX8am0cHX1mfhN0Tbc4wbdiXMXumrH" 
                   alt="Jacob Hull" 

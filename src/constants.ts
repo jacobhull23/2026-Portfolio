@@ -43,7 +43,7 @@ export const EXPERIENCES: Experience[] = [
   {
     id: '4',
     company: 'KPV LAB',
-    logoUrl: 'https://media.licdn.com/dms/image/v2/C4D0BAQFRhogvXq7MSA/company-logo_100_100/company-logo_100_100/0/1631373681451/kpv_lab_edinburgh_logo?e=1777507200&v=beta&t=XzcKyc4xAmNGcqZIx-OAGlBoOM9AIbnHR_aIq6a0-ro',
+    logoUrl: 'https://logo.clearbit.com/kpv-lab.co.uk',
     role: 'Product Manager (Lead Online Producer → Product Manager)',
     period: '2017–2020',
     description: 'Early team member shaping product direction and delivery for a data visualisation platform from concept through scale.',
