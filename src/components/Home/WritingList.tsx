@@ -17,6 +17,13 @@ export default function WritingList() {
             </div>
             <h3 className="text-5xl md:text-7xl font-display font-bold uppercase tracking-tighter">Articles</h3>
           </div>
+          <div className="hidden md:block">
+            <Link to="/archive">
+              <Button className="rounded-none bg-primary text-white hover:bg-foreground hover:text-white font-bold uppercase tracking-[0.2em] text-xs h-14 px-10 transition-all cursor-pointer shadow-xl">
+                Full Archive
+              </Button>
+            </Link>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
@@ -25,10 +32,10 @@ export default function WritingList() {
           ))}
         </div>
 
-        <div className="flex justify-center">
-          <Link to="/archive" className="w-full md:w-auto">
+        <div className="md:hidden">
+          <Link to="/archive">
             <Button 
-              className="w-full md:w-auto md:px-16 h-14 rounded-none bg-primary text-white hover:bg-foreground hover:text-white font-bold uppercase tracking-[0.2em] text-xs transition-all cursor-pointer shadow-xl"
+              className="w-full h-14 rounded-none bg-primary text-white hover:bg-foreground hover:text-white font-bold uppercase tracking-[0.2em] text-xs transition-all cursor-pointer shadow-xl"
             >
               Full Archive
             </Button>
