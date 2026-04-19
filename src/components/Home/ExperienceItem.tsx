@@ -41,7 +41,10 @@ const ExperienceItem: React.FC<ExperienceItemProps> = ({ exp }) => {
               <img 
                 src={exp.logoUrl} 
                 alt={`${exp.company} logo`}
-                className="max-h-full max-w-full object-contain"
+                className={cn(
+                  "max-h-full max-w-full object-contain",
+                  exp.company === 'KPV LAB' && "mix-blend-multiply"
+                )}
                 style={exp.company === 'Riot Games' ? { clipPath: 'circle(45%)' } : {}}
                 referrerPolicy="no-referrer"
               />

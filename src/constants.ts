@@ -43,7 +43,7 @@ export const EXPERIENCES: Experience[] = [
   {
     id: '4',
     company: 'KPV LAB',
-    logoUrl: 'https://logo.clearbit.com/kpv-lab.co.uk',
+    logoUrl: 'https://lh3.googleusercontent.com/d/1V7BU2-IqNBlgmLO7ZRoknoN8Ysr4vhef',
     role: 'Product Manager (Lead Online Producer → Product Manager)',
     period: '2017–2020',
     description: 'Early team member shaping product direction and delivery for a data visualisation platform from concept through scale.',
@@ -178,6 +178,7 @@ export const PROJECTS: Project[] = [
     description: 'Defined product direction and led development of a data visualisation platform from concept through delivery. Worked closely with engineers to shape core features, user experience, and scalable product foundations.',
     tags: ['KPV LAB', 'Data Vis', 'Platform'],
     imageUrl: 'https://uwaterloo.ca/writing-and-communication-centre/sites/default/files/uploads/images/old_books.jpg',
+    studioLogoUrl: 'https://lh3.googleusercontent.com/d/1V7BU2-IqNBlgmLO7ZRoknoN8Ysr4vhef',
     color: '#0ea5e9'
   }
 ];

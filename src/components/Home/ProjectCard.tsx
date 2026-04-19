@@ -34,7 +34,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onWatchPreview }) =>
           <img 
             src={project.studioLogoUrl} 
             alt="Studio Logo" 
-            className="h-6 md:h-12 w-auto object-contain opacity-40 md:group-hover:opacity-100 transition-all duration-500 grayscale brightness-200"
+            className={cn(
+              "h-6 md:h-12 w-auto object-contain transition-all duration-500",
+              project.studioLogoUrl.includes('lh3.googleusercontent.com') 
+                ? "mix-blend-multiply opacity-30 md:group-hover:opacity-100" 
+                : "grayscale brightness-200 opacity-40 md:group-hover:opacity-100"
+            )}
             referrerPolicy="no-referrer"
           />
         </div>
