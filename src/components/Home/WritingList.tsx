@@ -17,24 +17,19 @@ export default function WritingList() {
             </div>
             <h3 className="text-5xl md:text-7xl font-display font-bold uppercase tracking-tighter">Articles</h3>
           </div>
-          <div className="hidden md:block">
-            <Link to="/archive">
-              <Button variant="outline" className="rounded-none border-primary text-primary hover:bg-primary hover:text-primary-foreground font-bold uppercase tracking-widest text-xs h-14 px-10 cursor-pointer">
-                Full Archive
-              </Button>
-            </Link>
-          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           {WRITINGS.map((writing) => (
             <WritingCard key={writing.id} writing={writing} />
           ))}
         </div>
 
-        <div className="md:hidden">
-          <Link to="/archive">
-            <Button variant="outline" className="w-full rounded-none border-primary text-primary hover:bg-primary hover:text-primary-foreground font-bold uppercase tracking-widest text-xs h-14 cursor-pointer">
+        <div className="flex justify-center">
+          <Link to="/archive" className="w-full md:w-auto">
+            <Button 
+              className="w-full md:w-auto md:px-16 h-14 rounded-none bg-primary text-white hover:bg-foreground hover:text-white font-bold uppercase tracking-[0.2em] text-xs transition-all cursor-pointer shadow-xl"
+            >
               Full Archive
             </Button>
           </Link>
