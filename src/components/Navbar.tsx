@@ -22,7 +22,7 @@ export default function Navbar() {
         </div>
         <a href="https://www.linkedin.com/in/jacobhull" target="_blank" rel="noopener noreferrer" className="cursor-pointer">
           <Button variant="default" size="sm" className="rounded-none bg-primary hover:bg-foreground hover:text-background px-6 font-bold uppercase tracking-widest text-[10px] transition-all duration-300 cursor-pointer">
-            Resume
+            LinkedIn
           </Button>
         </a>
       </div>
