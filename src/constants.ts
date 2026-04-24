@@ -88,7 +88,9 @@ export const PROJECTS: Project[] = [
     logoScale: 2.0,
     platforms: ['PC', 'PS5', 'Xbox Series X/S'],
     videoUrl: 'https://www.youtube.com/watch?v=AnGdzz-XWcE',
-    websiteUrl: 'https://playvalorant.com/en-us/'
+    websiteUrl: 'https://playvalorant.com/en-us/',
+    criticScore: 81,
+    criticUrl: 'https://opencritic.com/game/9573/valorant'
   },
   {
     id: 'p2',
@@ -105,7 +107,9 @@ export const PROJECTS: Project[] = [
     logoScale: 1.1,
     platforms: ['PC', 'PS5', 'Xbox Series X/S'],
     videoUrl: 'https://youtu.be/xyK3lFtz2H8?si=yYN9OQ65yrqHgOXQ',
-    websiteUrl: 'https://2xko.riotgames.com/en-us/'
+    websiteUrl: 'https://2xko.riotgames.com/en-us/',
+    criticScore: 80,
+    criticUrl: 'https://opencritic.com/game/19487/2xko'
   },
   {
     id: 'p3',
@@ -139,7 +143,9 @@ export const PROJECTS: Project[] = [
     logoScale: 1.1,
     platforms: ['PC', 'PS5', 'Xbox Series X/S', 'Nintendo Switch', 'Mobile'],
     videoUrl: 'https://www.youtube.com/watch?v=nk_K5DM0UTk',
-    websiteUrl: 'https://store.steampowered.com/app/632470/Disco_Elysium__The_Final_Cut/'
+    websiteUrl: 'https://store.steampowered.com/app/632470/Disco_Elysium__The_Final_Cut/',
+    criticScore: 92,
+    criticUrl: 'https://opencritic.com/game/8419/disco-elysium'
   },
   {
     id: 'p4',
@@ -156,7 +162,9 @@ export const PROJECTS: Project[] = [
     logoScale: 1.2,
     platforms: ['PC', 'PS4', 'PS5', 'Xbox One', 'Xbox Series X/S', 'Nintendo Switch'],
     videoUrl: 'https://www.youtube.com/watch?v=n49TsZAwFEs',
-    websiteUrl: 'https://store.steampowered.com/app/920210/LEGO_Star_Wars_The_Skywalker_Saga/'
+    websiteUrl: 'https://store.steampowered.com/app/920210/LEGO_Star_Wars_The_Skywalker_Saga/',
+    criticScore: 82,
+    criticUrl: 'https://opencritic.com/game/9901/lego-star-wars-the-skywalker-saga'
   },
   {
     id: 'p5',

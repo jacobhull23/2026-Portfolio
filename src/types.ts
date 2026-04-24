@@ -30,6 +30,8 @@ export interface Project {
   platforms?: string[];
   videoUrl?: string;
   websiteUrl?: string;
+  criticScore?: number;
+  criticUrl?: string;
 }
 
 export interface Writing {

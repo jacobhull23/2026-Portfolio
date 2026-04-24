@@ -74,6 +74,19 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onWatchPreview }) =>
                     {project.status}
                   </span>
                 )}
+                {project.criticScore && (
+                  <motion.a 
+                    href={project.criticUrl} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="flex items-center gap-2 px-4 py-1.5 bg-white/10 backdrop-blur-md border border-white/20 shadow-lg hover:bg-white/20 transition-all cursor-pointer"
+                  >
+                    <span className="text-[8px] font-bold uppercase tracking-tighter text-white/50">OC Score</span>
+                    <span className="text-[11px] font-display font-bold text-white leading-none">{project.criticScore}</span>
+                  </motion.a>
+                )}
               </div>
               <div className="flex flex-wrap gap-3">
                 {project.platforms?.map((platform) => (
