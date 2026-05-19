@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Play, Globe, Gamepad2, Monitor, Smartphone } from 'lucide-react';
+import { Play, Globe, Gamepad2, Monitor, Smartphone, Star } from 'lucide-react';
 import { Project } from '../../types';
 import { cn } from '../../lib/utils';
 
@@ -65,12 +65,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onWatchPreview }) =>
           {/* Tags */}
           <div className="flex items-center justify-between mb-8 md:mb-12">
             <div className="flex flex-col gap-3">
-              <div className="flex flex-wrap gap-3">
-                <span className="px-4 py-1.5 bg-primary text-white text-[10px] font-bold uppercase tracking-[0.2em] shadow-lg">
+              <div className="flex flex-wrap items-center gap-3">
+                <span className="flex items-center justify-center h-8 px-4 bg-primary border border-white/20 text-white text-[10px] font-bold uppercase tracking-[0.2em] shadow-lg leading-none">
                   {project.year}
                 </span>
                 {project.status && (
-                  <span className="px-4 py-1.5 bg-white/10 backdrop-blur-md border border-white/20 text-[10px] font-bold uppercase tracking-[0.2em] text-white">
+                  <span className="flex items-center justify-center h-8 px-4 bg-white/10 backdrop-blur-md border border-white/20 text-[10px] font-bold uppercase tracking-[0.2em] text-white leading-none">
                     {project.status}
                   </span>
                 )}
@@ -81,10 +81,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onWatchPreview }) =>
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="flex items-center gap-2 px-4 py-1.5 bg-white/10 backdrop-blur-md border border-white/20 shadow-lg hover:bg-white/20 transition-all cursor-pointer"
+                    className="flex items-center justify-center h-8 gap-3 px-4 bg-[#1d2333]/80 backdrop-blur-md border border-white/20 shadow-2xl hover:bg-[#1d2333] hover:border-white/40 transition-all cursor-pointer group/score"
                   >
-                    <span className="text-[8px] font-bold uppercase tracking-tighter text-white/50">OC Score</span>
-                    <span className="text-[11px] font-display font-bold text-white leading-none">{project.criticScore}</span>
+                    <div className="flex items-center gap-2">
+                      <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
+                      <span className="text-[9px] font-bold uppercase tracking-[0.15em] text-white/70 group-hover/score:text-white transition-colors leading-none">OpenCritic</span>
+                    </div>
+                    <div className="h-3 w-px bg-white/20" />
+                    <span className="text-sm font-display font-bold text-white leading-none">{project.criticScore}</span>
                   </motion.a>
                 )}
               </div>
@@ -92,7 +96,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onWatchPreview }) =>
                 {project.platforms?.map((platform) => (
                   <span 
                     key={platform}
-                    className="px-4 py-1.5 bg-white/5 backdrop-blur-sm border border-white/10 text-[9px] font-bold uppercase tracking-[0.2em] text-white/80 flex items-center gap-2"
+                    className="flex items-center justify-center h-8 px-4 bg-white/5 backdrop-blur-sm border border-white/10 text-[9px] font-bold uppercase tracking-[0.2em] text-white/80 gap-2 leading-none"
                   >
                     {getPlatformIcon(platform)}
                     {platform}
