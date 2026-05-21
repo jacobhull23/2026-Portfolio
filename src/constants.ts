@@ -127,7 +127,7 @@ export const PROJECTS: Project[] = [
     platforms: ['PC', 'PS5'],
     videoUrl: 'https://www.youtube.com/watch?v=D4JVY8rR-XQ',
     websiteUrl: 'https://store.steampowered.com/app/2863680/ZERO_PARADES_For_Dead_Spies/',
-    criticScore: 91,
+    criticScore: 83,
     criticUrl: 'https://opencritic.com/game/20490/zero-parades-for-dead-spies'
   },
   {
