@@ -1,8 +1,11 @@
 import React from 'react';
 import { motion } from 'motion/react';
+import { Download } from 'lucide-react';
+import { handleDownloadCV } from '../../lib/download';
 
 export default function Hero() {
   return (
+
     <section className="pt-32 pb-24 px-6 relative overflow-hidden bg-background text-foreground border-b-4 border-primary min-h-[85vh] flex items-center">
       {/* Integrated Architectural Background */}
       <div className="absolute top-0 right-0 w-full lg:w-1/2 h-full z-0 overflow-hidden pointer-events-none">
@@ -24,10 +27,33 @@ export default function Hero() {
               Senior Producer & <br />
               <span className="text-primary">Product Manager</span>
             </h1>
-            <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-12">
+            <div className="flex flex-col gap-8">
               <p className="text-xl md:text-2xl font-medium max-w-xl leading-snug">
                 Leading cross-functional teams to build and ship world-class digital products, social systems, and impactful user experiences.
               </p>
+              
+              {/* Call to Actions - CV Download and Contact */}
+              <div className="flex flex-wrap items-center gap-4">
+                <motion.a 
+                  href="/Jacob_Hull_CV.pdf" 
+                  download="Jacob_Hull_CV.pdf"
+                  onClick={handleDownloadCV}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="flex items-center justify-center h-12 px-6 bg-primary text-white text-xs font-bold uppercase tracking-[0.2em] shadow-lg hover:bg-foreground hover:text-background transition-all duration-300 group/cv cursor-pointer"
+                >
+                  <Download className="h-4 w-4 mr-2 transition-transform duration-300 group-hover/cv:translate-y-0.5" />
+                  Download CV
+                </motion.a>
+                <motion.a 
+                  href="#contact"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="flex items-center justify-center h-12 px-6 bg-transparent border border-primary/40 text-foreground text-xs font-bold uppercase tracking-[0.2em] hover:bg-primary/5 hover:border-primary transition-all duration-300 cursor-pointer"
+                >
+                  Get In Touch
+                </motion.a>
+              </div>
             </div>
           </motion.div>
 
