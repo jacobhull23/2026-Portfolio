@@ -121,7 +121,7 @@ export const PROJECTS: Project[] = [
     tags: ['ZA/UM', 'Narrative', 'RPG'],
     imageUrl: '/portfolio-images/zero_parades_background.jpg',
     studioLogoUrl: '/portfolio-images/zaum_studio_logo.png',
-    gameLogoUrl: 'https://www.gematsu.com/wp-content/uploads/2025/09/ZERO-PARADES-For-Dead-Spies_2025_09-24-25_012.png',
+    gameLogoUrl: '/portfolio-images/zero_parades_game_logo.png',
     color: '#facc15',
     logoScale: 1.1,
     platforms: ['PC', 'PS5'],
@@ -198,7 +198,7 @@ export const WRITINGS: Writing[] = [
     id: 'w2',
     title: 'Shadow Warrior 2: Not Silent, Very Deadly',
     publication: 'Official PlayStation Magazine',
-    publicationLogo: 'https://upload.wikimedia.org/wikipedia/fr/2/28/PlayStation_Official_Magazine_-_UK_Logo.png',
+    publicationLogo: '/portfolio-images/playstation_official_magazine_logo.png',
     date: 'Preview',
     link: '/articles/shadow-warrior-2-preview',
     category: 'Preview',
@@ -212,7 +212,7 @@ export const WRITINGS: Writing[] = [
     date: 'Dec 2016',
     link: 'https://www.pushsquare.com/news/2016/12/feature_how_abstraction_games_evolved_to_get_ark_on_ps4',
     category: 'Development Story',
-    image: 'https://images.pushsquare.com/news/2016/12/feature_how_abstraction_games_evolved_to_get_ark_on_ps4/1280x720.jpg'
+    image: '/portfolio-images/ark_survival_evolved_feature.jpg'
   },
   {
     id: 'w3',
