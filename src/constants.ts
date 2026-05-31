@@ -5,7 +5,7 @@ export const EXPERIENCES: Experience[] = [
     id: '1',
     company: 'Riot Games',
     logoUrl: 'https://img.icons8.com/color/512/riot-games.png',
-    role: 'Advanced Producer · Program / Delivery Lead',
+    role: 'Producer II',
     period: '2025–Present',
     description: 'Leading cross-functional delivery across globally distributed teams on live and in-development titles, including VALORANT and 2XKO.',
     achievements: [
@@ -18,7 +18,7 @@ export const EXPERIENCES: Experience[] = [
     id: '2',
     company: 'ZA/UM Studio',
     logoUrl: 'https://images.igdb.com/igdb/image/upload/t_original/cl8yk.webp',
-    role: 'Technical Producer → Senior Producer',
+    role: 'Senior Producer',
     period: '2022–2025',
     description: 'Joined at project inception to help shape product direction and establish scalable production systems across a globally distributed studio.',
     achievements: [
@@ -31,7 +31,7 @@ export const EXPERIENCES: Experience[] = [
     id: '3',
     company: 'TT Games (Warner Bros.)',
     logoUrl: 'https://upload.wikimedia.org/wikipedia/en/9/96/TT_Games.png',
-    role: 'Producer',
+    role: 'Associate Producer',
     period: '2020–2022',
     description: 'Delivered large-scale AAA titles within a multi-team production environment, working across internal teams and external licensors.',
     achievements: [
@@ -44,7 +44,7 @@ export const EXPERIENCES: Experience[] = [
     id: '4',
     company: 'KPV LAB',
     logoUrl: 'https://lh3.googleusercontent.com/d/1V7BU2-IqNBlgmLO7ZRoknoN8Ysr4vhef',
-    role: 'Product Manager (Lead Online Producer → Product Manager)',
+    role: 'Product Manager',
     period: '2017–2020',
     description: 'Early team member shaping product direction and delivery for a data visualisation platform from concept through scale.',
     achievements: [
@@ -58,7 +58,7 @@ export const EXPERIENCES: Experience[] = [
     company: 'Push Square / Official PlayStation Magazine',
     logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Push_Square_logo.svg/960px-Push_Square_logo.svg.png',
     role: 'Freelance Games Journalist',
-    period: '2015–2020',
+    period: '2013–2020',
     description: 'Authored 100+ articles covering news, reviews, interviews, and studio features across leading UK PlayStation publications.',
     achievements: [
       'Covered major industry events including Gamescom, Tokyo Game Show, and E3, delivering rapid-turnaround news and features',
@@ -76,7 +76,7 @@ export const PROJECTS: Project[] = [
   {
     id: 'p1',
     title: 'VALORANT',
-    role: 'Advanced Producer',
+    role: 'Producer II',
     focusArea: 'Personalisation & Player Expression',
     year: '2025–Present · Live',
     description: 'Led cross-functional delivery of systems enabling player identity and expression across a global player base. Balanced player motivation, engagement, and monetisation to support long-term retention and meaningful player choice.',
@@ -95,7 +95,7 @@ export const PROJECTS: Project[] = [
   {
     id: 'p2',
     title: '2XKO',
-    role: 'Advanced Producer',
+    role: 'Producer II',
     focusArea: 'Social, Safety & Trust Systems',
     year: '2025–Present · Live',
     description: 'Led regional delivery in Sydney, driving cross-functional development from Closed Beta through launch and into live operations. Worked closely with player communities and global teams to shape safety, reporting, and social systems at scale.',
@@ -152,7 +152,7 @@ export const PROJECTS: Project[] = [
   {
     id: 'p4',
     title: 'LEGO Star Wars: The Skywalker Saga',
-    role: 'Producer',
+    role: 'Associate Producer',
     focusArea: 'Multi-Team Delivery',
     year: '2020–2022 · Released',
     description: 'Coordinated delivery across multiple discipline teams on a large-scale licensed title, supporting milestone planning and execution. Managed dependencies and stakeholder alignment, including collaboration with external licensors.',
@@ -171,7 +171,7 @@ export const PROJECTS: Project[] = [
   {
     id: 'p5',
     title: 'Unannounced LEGO Project',
-    role: 'Project Coordinator',
+    role: 'Associate Producer',
     focusArea: 'Cross-Functional Teams',
     year: '2020–2021 · Cancelled',
     description: 'Supported development across multiple teams on a large-scale licensed title, driving coordination and production planning. Worked across disciplines to maintain alignment, visibility, and delivery momentum in a complex production environment.',
